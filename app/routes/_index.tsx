@@ -58,13 +58,12 @@ function Hero({ className }: { className?: string }) {
 }
 
 function Problem() {
-  const year = new Date().getFullYear();
   return (
     <div className="section flex flex-col items-center justify-center gap-8 h-[110dvh] bg-foreground text-muted">
       <div className="grid grid-cols-1 lg:grid-cols-4 w-full h-full">
         <div className="flex flex-col items-center justify-center p-6 gap-8 border-r h-full">
           <h2 className="text-2xl font-semibold tracking-tight leading-[1.1]">
-            State of American precision machining in {year}
+            Summary of the problem that we're solving
           </h2>
           <p className="text-sm tracking-tight font-light">
             Lorem Ipsum is simply dummy text of the printing and typesetting
