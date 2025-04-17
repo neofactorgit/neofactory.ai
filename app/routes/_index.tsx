@@ -27,6 +27,7 @@ function Hero({ className }: { className?: string }) {
   return (
     <div className="section flex flex-col items-center justify-center gap-8 h-[100dvh] bg-background z-logo relative overflow-hidden">
       <DotPattern
+        glow
         className={cn(
           "[mask-image:radial-gradient(max(400px,30vw)_circle_at_center,white,transparent)]",
           "md:opacity-100"
