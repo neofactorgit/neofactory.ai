@@ -67,14 +67,12 @@ function Problem() {
             State of American precision machining in {year}
           </h2>
           <p className="text-sm tracking-tight font-light">
-            America’s defense industrial base, which has helped to deter war and
-            maintain peace for decades, has failed to keep pace and adapt with
-            the times. It is being left behind by evolving great power threats,
-            technological innovation in areas such as low-cost robotics and
-            artificial intelligence, and a commercial manufacturing revolution
-            that is enabling the hyper-scale production. America and our allies
-            increasingly lack the industrial capacity to deter, and if
-            necessary, fight and win a great power conflict.
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
           </p>
         </div>
 
