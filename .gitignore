@@ -1,0 +1,15 @@
+node_modules
+
+.cache
+.vercel
+.output
+
+build
+public/build
+api/index.js*
+api/_assets*
+
+.env
+
+# Generated files
+app/lib/static-blog-data.ts
