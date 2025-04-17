@@ -15,6 +15,9 @@ export default {
       },
     },
     extend: {
+      fontWeight: {
+        DEFAULT: 400,
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -76,7 +79,7 @@ export default {
       fontFamily: {
         sans: ["Geist Variable", ...fontFamily.sans],
         mono: ["Geist Mono Variable", ...fontFamily.mono],
-        display: ["Special Gothic Expanded One", ...fontFamily.sans],
+        display: [["Special Gothic Expanded One"], ...fontFamily.sans],
       },
       width: {
         "form-sm": "360px",

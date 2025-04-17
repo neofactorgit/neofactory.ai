@@ -46,7 +46,7 @@ function Hero({ className }: { className?: string }) {
       >
         <h2
           className={cn(
-            "font-display font-bold uppercase text-foreground",
+            "font-display uppercase text-foreground",
             "text-4xl px-12 md:px-0",
             "md:text-4xl lg:text-6xl"
           )}
@@ -179,7 +179,7 @@ function Plan({ className }: { className?: string }) {
           "md:opacity-100"
         )}
       />
-      <h2 className="text-2xl font-display font-bold text-center uppercase">
+      <h2 className="text-2xl font-display text-center uppercase">
         Hyper-scale production
       </h2>
       <p className="text-base font-light text-muted-foreground text-center">
@@ -196,7 +196,7 @@ function Plan({ className }: { className?: string }) {
             <div className="flex flex-col flex-grow items-start justify-start gap-2">
               <div className="flex items-center justify-start gap-2">
                 <item.icon className="w-6 h-6" />
-                <h3 className="text-xl font-medium font-display uppercase text-white">
+                <h3 className="text-xl font-display uppercase text-white">
                   {item.title}
                 </h3>
               </div>
@@ -205,7 +205,7 @@ function Plan({ className }: { className?: string }) {
               </p>
             </div>
             <div className="flex flex-col items-end justify-center gap-2">
-              <span className="text-xl font-medium font-display uppercase text-muted">
+              <span className="text-xl font-display uppercase text-muted">
                 0{index + 1}
               </span>
               <button className="flex items-center justify-center gap-2 text-xs tracking-tight text-muted-foreground">
@@ -250,7 +250,7 @@ function Demo() {
 function CTA() {
   return (
     <div className="section flex flex-col items-center justify-center gap-8 min-h-[110dvh] bg-foreground text-muted">
-      <div className="flex flex-col w-full max-w-4xl mx-auto px-8 gap-24">
+      <div className="flex flex-col w-full max-w-4xl mx-auto px-8 gap-24 py-12">
         <div className="w-full relative">
           <div className="top-[3px] absolute left-0 w-full h-px bg-accent" />
           <div className="top-[2px] absolute left-0 w-[28%] h-[3px] bg-accent" />
