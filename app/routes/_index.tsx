@@ -63,7 +63,7 @@ function Problem() {
       <div className="grid grid-cols-1 lg:grid-cols-4 w-full h-full">
         <div className="flex flex-col items-center justify-center p-6 gap-8 border-r h-full">
           <h2 className="text-2xl font-semibold tracking-tight leading-[1.1]">
-            Summary of the problem that we're solving
+            High-mix, low-volume manufacturing at scale
           </h2>
           <p className="text-sm tracking-tight font-light">
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -77,25 +77,25 @@ function Problem() {
 
         <div className="hidden lg:flex border-r h-full flex-col justify-between items-center p-4">
           <BrutalChart
-            value="8d"
-            label="Estimated time before running out of weapons in a war"
+            value="-9%"
+            label="1 / Emissions"
             height={10}
             className="bg-white"
           />
         </div>
         <div className="hidden lg:flex border-r h-full flex-col justify-between items-center p-4">
           <BrutalChart
-            value="24m"
-            label="Approximate time before humanoid robots are GA"
-            height={24}
+            value="-5%"
+            label="2 / Emissions"
+            height={48}
             className="bg-muted-foreground"
           />
         </div>
         <div className="hidden lg:flex h-full flex-col justify-between items-center p-4">
           <BrutalChart
-            value="63y"
-            label="Average age of American machine shop owner"
-            height={52}
+            value="3/3"
+            label="3 / Emissions"
+            height={67}
             className="bg-background"
           />
         </div>
