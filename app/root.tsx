@@ -169,10 +169,9 @@ export default function App() {
 
     if (!logoElement || !sectionsRef.current) return;
 
-    const logoRect = logoElement.getBoundingClientRect();
-    const logoPosition = logoRect.top + logoRect.height / 2;
-
     const checkSectionColor = () => {
+      const logoRect = logoElement.getBoundingClientRect();
+      const logoPosition = logoRect.top + logoRect.height / 2;
       const sections = document.querySelectorAll(".section");
 
       for (const section of sections) {
@@ -186,16 +185,56 @@ export default function App() {
       }
     };
 
+    // Debounce the handler
+    const throttledCheck = throttle(checkSectionColor, 50);
+
     // Initial check
     checkSectionColor();
 
-    // Check on scroll
-    window.addEventListener("scroll", checkSectionColor);
+    // Check on scroll and resize with debounce
+    window.addEventListener("scroll", throttledCheck);
+    window.addEventListener("resize", throttledCheck);
 
     return () => {
-      window.removeEventListener("scroll", checkSectionColor);
+      window.removeEventListener("scroll", throttledCheck);
+      window.removeEventListener("resize", throttledCheck);
+      // Clean up debounce timer
+      throttledCheck.cancel();
     };
   }, []);
+
+  // Debounce utility function
+  function throttle<T extends (...args: any[]) => any>(func: T, wait: number) {
+    let lastRun = 0;
+    let timeout: NodeJS.Timeout | null = null;
+
+    const throttled = (...args: Parameters<T>) => {
+      const now = Date.now();
+
+      if (now - lastRun >= wait) {
+        // Enough time has passed, execute immediately
+        func(...args);
+        lastRun = now;
+      } else if (!timeout) {
+        // Schedule next execution at wait boundary
+        const remaining = wait - (now - lastRun);
+        timeout = setTimeout(() => {
+          func(...args);
+          lastRun = Date.now();
+          timeout = null;
+        }, remaining);
+      }
+    };
+
+    throttled.cancel = () => {
+      if (timeout) {
+        clearTimeout(timeout);
+        timeout = null;
+      }
+    };
+
+    return throttled;
+  }
 
   return (
     <Document
