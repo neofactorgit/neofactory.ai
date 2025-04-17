@@ -253,7 +253,10 @@ function CTA() {
       <div className="flex flex-col w-full max-w-4xl mx-auto px-8 gap-24">
         <div className="w-full relative">
           <div className="top-[3px] absolute left-0 w-full h-px bg-accent" />
-          <div className="top-[2px] absolute left-0 w-[30%] h-[3px] bg-accent" />
+          <div className="top-[2px] absolute left-0 w-[28%] h-[3px] bg-accent" />
+          <h2 className="text-sm font-medium tracking-tighter top-[10px] absolute left-0">
+            The future of American manufacturing
+          </h2>
         </div>
         <div className="flex flex-col max-w-2xl w-full mx-auto gap-8 ">
           <p className="text-xl text-balance tracking-tight">
@@ -283,7 +286,7 @@ function CTA() {
         </div>
         <div className="w-full relative">
           <div className="top-[3px] absolute left-0 w-full h-px bg-accent" />
-          <div className="top-[2px] absolute right-0 w-[30%] h-[3px] bg-accent" />
+          <div className="top-[2px] absolute right-0 w-[39%] h-[3px] bg-accent" />
         </div>
       </div>
     </div>
