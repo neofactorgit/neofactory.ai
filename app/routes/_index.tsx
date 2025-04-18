@@ -15,90 +15,226 @@ export default function Route() {
   return (
     <>
       <Hero />
-      <Problem />
+      <Features />
+      {/* <Text /> */}
       <Plan />
-      <CTA />
-      <Demo />
+      <Costs />
     </>
   );
 }
 
-function Hero({ className }: { className?: string }) {
-  return (
-    <div className="section flex flex-col items-center justify-center gap-8 h-[100dvh] bg-background z-logo relative overflow-hidden">
-      <DotPattern
-        glow
-        className={cn(
-          "[mask-image:radial-gradient(max(400px,30vw)_circle_at_center,white,transparent)]",
-          "md:opacity-100"
-        )}
-      />
+function Hero() {
+  const [mounted, setMounted] = useState(false);
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.2, duration: 1.0, ease: "easeInOut" }}
-        className={cn(
-          "relative w-full text-center z-logo",
-          "md:left-8 lg:left-12 xl:left-24 md:bottom-32 md:absolute md:w-1/3 md:text-left",
-          className
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  return (
+    <div className="section bg-background flex flex-col items-center justify-center lg:justify-end gap-8 h-[100dvh] text-white z-logo relative overflow-hidden w-full px-section py-[80px]">
+      <div className="absolute inset-0 w-full">
+        {mounted && (
+          <motion.video
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="h-full w-full object-cover"
+          >
+            <source src="/videos/demo.mp4" type="video/mp4" />
+          </motion.video>
         )}
-      >
-        <h2
-          className={cn(
-            "font-display uppercase text-foreground",
-            "text-4xl px-12 md:px-0",
-            "md:text-4xl lg:text-6xl"
-          )}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-background" />
+      </div>
+
+      <div className="max-w-section !my-0 grid-layout z-20 relative">
+        <motion.h1
+          initial={{ opacity: 0, filter: "blur(2px)" }}
+          animate={{ opacity: 1, filter: "blur(0px)" }}
+          transition={{
+            duration: 0.8,
+            delay: 0.2,
+            filter: { duration: 0.6, delay: 0.4 },
+          }}
+          className="select-none max-lg:mb-[20px] col-span-full lg:col-span-7 uppercase text-[32px] xs:text-[42px] md:text-[40px] lg:text-[46px] xl:text-[67px] 2xl:text-[80px] leading-heading font-bold text-wrap-balance font-display "
         >
-          Autonomous Factories
-        </h2>
-      </motion.div>
+          Full Factory Automation
+        </motion.h1>
+        <div className="col-span-full lg:col-span-5 lg:col-start-8 flex flex-col gap-base lg:mt-[-5.4px]">
+          <motion.h2
+            initial={{ opacity: 0, filter: "blur(2px)" }}
+            animate={{ opacity: 1, filter: "blur(0px)" }}
+            transition={{
+              duration: 0.8,
+              delay: 0.4,
+              filter: { duration: 0.6, delay: 0.6 },
+            }}
+            className="xs:text-[24px] lg:text-[22px] xl:text-[24px] standard-type-body text-wrap-pretty"
+          >
+            Neofactory builds and operates automated production lines for
+            high-precision industries
+          </motion.h2>
+        </div>
+      </div>
     </div>
   );
 }
 
-function Problem() {
+function Features() {
   return (
-    <div className="section flex flex-col items-center justify-center gap-8 h-[110dvh] bg-foreground text-muted">
+    <div className="section flex flex-col items-center justify-center gap-8 min-h-[110dvh] bg-background text-foreground">
+      <div className="flex flex-col w-full max-w-section mx-auto px-section gap-24">
+        <div className="w-full relative">
+          <h2 className="text-base font-medium tracking-tighter top-[-22px] absolute left-0">
+            Bridging the gap between AI and robotics
+          </h2>
+          <div className="top-[3px] absolute left-0 w-full h-px bg-foreground" />
+          <div className="top-[2px] absolute left-0 w-[284px] h-[3px] bg-foreground" />
+        </div>
+        <div className="grid w-full grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="bg-accent rounded-lg p-6 flex flex-col gap-4">
+            <img src="/icons/cube.svg" alt="Cube" className="size-16" />
+            <h3 className="text-xl tracking-tight text-white">
+              Complex Requirements
+            </h3>
+            <p className="text-base font-light tracking-tight text-muted-foreground text-balance">
+              In precision manufacturing, the great majority of work involves
+              transforming complex requirements into specific quality attributes
+              and operations. By automating the ingestion and routing of complex
+              requirements documents, we can reduce the time and cost of
+              manufacturing.
+            </p>
+          </div>
+
+          <div className="bg-accent rounded-lg p-6 flex flex-col gap-4">
+            <img src="/icons/diamond.svg" alt="Diamond" className="size-16" />
+            <h3 className="text-xl tracking-tight text-white">
+              Critical Processes
+            </h3>
+            <p className="text-base font-light tracking-tight text-muted-foreground text-balance">
+              A precision machine can destroy itself in 200 milliseconds if not
+              properly calibrated. A $30,000 steel blank can be ruined by a
+              scratch. Automated monitoring and precision control prevent costly
+              errors and ensure top quality.
+            </p>
+          </div>
+
+          <div className="bg-accent rounded-lg p-6 flex flex-col gap-4">
+            <img src="/icons/triangle.svg" alt="Triangle" className="size-16" />
+            <h3 className="text-xl tracking-tight text-white">
+              Long Time Horizons
+            </h3>
+            <p className="text-base font-light tracking-tight text-muted-foreground text-balance">
+              Artificial intelligence and robotics work best with single,
+              solvable tasks. But in the real world, thousands of subtasks
+              require coordination across weeks of time. Our software layer
+              orchestrates the coordination of these subtasks to create a
+              factory that can adapt to changing requirements.
+            </p>
+          </div>
+        </div>
+        <div className="w-full relative">
+          <div className="top-[3px] absolute left-0 w-full h-px bg-foreground" />
+          <div className="top-[2px] absolute right-0 w-[39%] h-[3px] bg-foreground" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Plan() {
+  return (
+    <div className="section flex flex-col items-center justify-start gap-8 min-h-[110dvh] bg-accent z-logo relative overflow-hidden py-32 px-6">
+      <DotPattern
+        glow
+        className={cn(
+          "[mask-image:radial-gradient(40vw_circle_at_center,white,transparent)]",
+          "md:opacity-100"
+        )}
+      />
+
+      <div className="max-w-2xl w-full flex flex-col mx-auto mt-12 gap-8 z-50">
+        <h2 className="text-2xl font-display text-center uppercase">
+          Hyper-scale production
+        </h2>
+        <p className="text-base font-light text-muted-foreground text-center">
+          Scaling high-mix low-volume manufacturing requires a new approach to
+          automation. It's not enough to automate the machines. A new layer is
+          needed to automate operations.
+        </p>
+        {plan.map((item, index) => (
+          <div
+            key={item.title}
+            className="w-full rounded bg-accent p-6 border border-border flex justify-between items-center backdrop-filter backdrop-blur-xl bg-opacity-5"
+          >
+            <div className="flex flex-col flex-grow items-start justify-start gap-2">
+              <div className="flex items-center justify-start gap-2">
+                <item.icon className="w-6 h-6" />
+                <h3 className="text-xl font-display uppercase text-white">
+                  {item.title}
+                </h3>
+              </div>
+              <p className="text-sm font-light tracking-tight text-muted-foreground">
+                {item.shortDescription}
+              </p>
+            </div>
+            <div className="flex flex-col items-end justify-center gap-2">
+              <span className="text-xl font-display uppercase text-white/30">
+                0{index + 1}
+              </span>
+              <button className="flex items-center justify-center gap-2 text-xs tracking-tight text-muted-foreground">
+                Learn more
+                <LucideArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Costs() {
+  return (
+    <div className="section flex flex-col items-center justify-center gap-8 h-[100dvh] bg-foreground text-muted">
       <div className="grid grid-cols-1 lg:grid-cols-4 w-full h-full">
         <div className="flex flex-col items-center justify-center p-6 gap-8 border-r h-full">
-          <h2 className="text-2xl font-semibold tracking-tight leading-[1.1]">
-            High-mix, low-volume manufacturing at scale
+          <h2 className="text-2xl font-semibold tracking-tight leading-heading lg:w-full">
+            A paradigm shift in manufacturing costs
           </h2>
-          <p className="text-sm tracking-tight font-light">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged.
+          <p className="text-sm tracking-tight font-light lg:w-full">
+            The rules for making things are fundamentally rewritten every few
+            generations. The 1870s saw steel mills and electric grids reshape
+            our cities. The 1910s brought assembly lines that put the world on
+            wheels. Each time, America led the way not just by inventing new
+            technologies, but by rearranging itself to build at scale.
+          </p>
+          <p className="text-sm tracking-tight font-light lg:w-full">
+            Today, we stand at another such moment. Intelligence, automation,
+            and cheap abundant energy are converging to rewrite the economics of
+            production. Beyond industrial or trade policy, something more
+            profound is changing: the underlying cost physics of manufacturing.
+            And unlike previous technological revolutions, this transformation
+            may be permanent – creating a lasting shift that uniquely favors
+            American manufacturing.
           </p>
         </div>
 
-        <div className="hidden lg:flex border-r h-full flex-col justify-between items-center p-4">
-          <BrutalChart
-            value="-9%"
-            label="1 / Emissions"
-            height={10}
-            className="bg-white"
-          />
+        <div className="flex border-r h-full flex-col justify-between items-center p-4">
+          <BrutalChart value="Labor ▼" height={5} className="bg-white" />
         </div>
-        <div className="hidden lg:flex border-r h-full flex-col justify-between items-center p-4">
+        <div className="flex border-r h-full flex-col justify-between items-center p-4">
           <BrutalChart
-            value="-5%"
-            label="2 / Emissions"
-            height={48}
+            value="CapEx ▲"
+            height={40}
             className="bg-muted-foreground"
           />
         </div>
-        <div className="hidden lg:flex h-full flex-col justify-between items-center p-4">
-          <BrutalChart
-            value="3/3"
-            label="3 / Emissions"
-            height={67}
-            className="bg-background"
-          />
+        <div className="flex h-full flex-col justify-between items-center p-4">
+          <BrutalChart value="Material" height={52} className="bg-background" />
         </div>
       </div>
     </div>
@@ -114,12 +250,12 @@ function BrutalChart({
   className?: string;
   height: number;
   value: string;
-  label: string;
+  label?: string;
 }) {
   return (
     <div className="flex flex-col items-start justify-end h-full w-full gap-2">
       <h3 className="text-6xl font-medium">{value}</h3>
-      <p className="text-sm font-light tracking-tight">{label}</p>
+      {label && <p className="text-sm font-light tracking-tight">{label}</p>}
       <div
         style={{
           height: `${height}dvh`,
@@ -139,121 +275,44 @@ const plan = [
     title: "Simulate",
     icon: LucideGamepad2,
     shortDescription:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     longDescription:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
 
   {
     title: "Build",
     icon: LucideFactory,
     shortDescription:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     longDescription:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
   {
     title: "Automate",
     icon: LucideFunctionSquare,
     shortDescription:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     longDescription:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
   {
     title: "Scale",
     icon: LucideChartNoAxesCombined,
     shortDescription:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     longDescription:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
   },
 ];
 
-function Plan({ className }: { className?: string }) {
-  return (
-    <div className="section flex flex-col items-center justify-start gap-8 min-h-[110dvh] bg-accent z-logo relative overflow-hidden py-32 px-6">
-      <DotPattern
-        className={cn(
-          "[mask-image:radial-gradient(max(400px,30vw)_circle_at_center,white,transparent)]",
-          "md:opacity-100"
-        )}
-      />
-      <h2 className="text-2xl font-display text-center uppercase">
-        Hyper-scale production
-      </h2>
-      <p className="text-base font-light text-muted-foreground text-center">
-        Neofactory is building the droid management layer for fully autonomous
-        American factories.
-      </p>
-
-      <div className="flex flex-col max-w-2xl w-full mx-auto mt-12 gap-8 z-50">
-        {plan.map((item, index) => (
-          <div
-            key={item.title}
-            className="w-full rounded bg-accent p-6 border border-border flex justify-between items-center backdrop-filter backdrop-blur-xl bg-opacity-5"
-          >
-            <div className="flex flex-col flex-grow items-start justify-start gap-2">
-              <div className="flex items-center justify-start gap-2">
-                <item.icon className="w-6 h-6" />
-                <h3 className="text-xl font-display uppercase text-white">
-                  {item.title}
-                </h3>
-              </div>
-              <p className="text-sm font-light tracking-tight text-muted-foreground">
-                {item.shortDescription}
-              </p>
-            </div>
-            <div className="flex flex-col items-end justify-center gap-2">
-              <span className="text-xl font-display uppercase text-muted">
-                0{index + 1}
-              </span>
-              <button className="flex items-center justify-center gap-2 text-xs tracking-tight text-muted-foreground">
-                Learn more
-                <LucideArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function Demo() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  return (
-    <div className="section relative flex h-screen w-full items-center justify-center bg-background overflow-hidden">
-      <div className="absolute inset-0">
-        {mounted && (
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="h-full w-full object-cover"
-          >
-            <source src="/videos/demo.mp4" type="video/mp4" />
-          </video>
-        )}
-      </div>
-      <div className="absolute inset-0 bg-black/50" />
-    </div>
-  );
-}
-
-function CTA() {
+function Text() {
   return (
     <div className="section flex flex-col items-center justify-center gap-8 min-h-[110dvh] bg-foreground text-muted">
-      <div className="flex flex-col w-full max-w-4xl mx-auto px-8 gap-24 py-12">
+      <div className="flex flex-col w-full max-w-section mx-auto px-8 gap-24 py-12 px-section">
         <div className="w-full relative">
           <div className="top-[3px] absolute left-0 w-full h-px bg-accent" />
-          <div className="top-[2px] absolute left-0 w-[28%] h-[3px] bg-accent" />
+          <div className="top-[2px] absolute left-0 w-[240px] h-[3px] bg-accent" />
           <h2 className="text-sm font-medium tracking-tighter top-[10px] absolute left-0">
             The future of American manufacturing
           </h2>
@@ -289,15 +348,6 @@ function CTA() {
           <div className="top-[2px] absolute right-0 w-[39%] h-[3px] bg-accent" />
         </div>
       </div>
-    </div>
-  );
-}
-
-function Hr() {
-  return (
-    <div className="w-full relative">
-      <div className="top-[3px] absolute left-0 w-full h-px bg-accent" />
-      <div className="top-[2px] absolute left-0 w-[30%] h-[3px] bg-accent" />
     </div>
   );
 }

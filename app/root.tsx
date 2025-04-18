@@ -50,7 +50,7 @@ export const meta: MetaFunction = ({ data }) => {
     {
       name: "description",
       content:
-        "neofactory is high-precision CNC factory that is built for transparent automation",
+        "Neofactory builds and operates automated production lines for high-precision industries",
     },
     {
       name: "robots",
@@ -71,7 +71,7 @@ export const meta: MetaFunction = ({ data }) => {
     {
       property: "og:description",
       content:
-        "neofactory is high-precision CNC factory that is built for transparent automation",
+        "Neofactory builds and operates automated production lines for high-precision industries",
     },
     // {
     //   property: "og:image",
@@ -93,7 +93,7 @@ export const meta: MetaFunction = ({ data }) => {
     {
       name: "twitter:description",
       content:
-        "neofactory is high-precision CNC factory that is built for transparent automation",
+        "Neofactory builds and operates automated production lines for high-precision industries",
     },
     // {
     //   name: "twitter:image",
@@ -125,7 +125,7 @@ const Document = forwardRef<
       </head>
       <body
         suppressHydrationWarning
-        className="h-[100dvh] w-[100dvw] flex flex-col bg-background text-foreground antialiased selection:bg-[#00cc9937] selection:text-[#007763fd] dark:selection:bg-[#00fff61d] dark:selection:text-[#67ffded2]"
+        className="h-[100dvh] w-[100dvw] flex flex-col bg-background text-foreground antialiased [selection]:bg-[#00cc9937] selection:text-[#007763fd] dark:selection:bg-[#00fff61d] dark:selection:text-[#67ffded2]"
       >
         <header className="flex select-none items-center px-6 md:px-8 lg:px-12 xl:px-24 h-[var(--header-height)] fixed top-0 left-0 right-0 z-header">
           <div className="flex items-center justify-between gap-2 z-logo text-foreground w-full">

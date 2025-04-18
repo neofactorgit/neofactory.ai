@@ -86,6 +86,11 @@ export default {
         "form-md": "580px",
         "form-lg": "680px",
       },
+
+      lineHeight: {
+        heading: "var(--line-heading)",
+        body: "var(--line-body)",
+      },
       keyframes: {
         "accordion-down": {
           from: {
