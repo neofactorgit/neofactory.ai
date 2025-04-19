@@ -1,6 +1,7 @@
 import { DotPattern } from "components/magicui/dot-pattern";
 import Hls from "hls.js";
 import { useEffect, useRef, useState } from "react";
+import { Button } from "~/components/ui/button";
 
 import { cn } from "~/lib/utils";
 
@@ -151,7 +152,7 @@ function Plan() {
             <div className="flex flex-col flex-grow items-start justify-start gap-2">
               <div className="flex items-center justify-start gap-2">
                 <img src={item.icon} alt={item.title} className="size-6" />
-                <h3 className="text-2xl font-semibold tracking-tight text-white">
+                <h3 className="text-xl font-medium tracking-tight text-white">
                   {item.title}
                 </h3>
               </div>
@@ -196,23 +197,34 @@ function Mission() {
         <div className="w-full relative">
           <div className="top-[3px] absolute left-0 w-full h-px bg-accent" />
           <div className="top-[2px] absolute left-0 w-[260px] h-[3px] bg-accent" />
-          <h2 className="text-sm font-medium tracking-tighter top-[10px] absolute left-0">
-            American abundance through automation
+          <h2 className="text-base font-medium tracking-tighter top-[-22px] absolute left-0">
+            Our Mission
           </h2>
         </div>
-        <div className="flex flex-col max-w-2xl w-full mx-auto gap-8 ">
-          <p className="text-xl text-balance tracking-tight">
-            We believe that in order to restore American manufacturing
-            dominance, a new approach is needed. Instead of reducing costs with
-            lower wages and government subsidies, we envision a future inspired
-            by our past&ndash; where abundance is created through American
-            ingenuity and automation.
-          </p>
-          <p className="text-xl text-balance tracking-tight">
-            AI and robotics are changing the underlying economics of
-            manufacturing. We have a chance to reinvent the American production
-            base, not by longing for the past, but by building the future.
-          </p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="py-20">
+            <h2 className="text-5xl font-display tracking-tight text-left uppercase">
+              American abundance through automation
+            </h2>
+          </div>
+          <div className="flex flex-col w-full mx-auto gap-8 ">
+            <p className="text-xl text-balance tracking-tight">
+              We believe that in order to restore American manufacturing
+              dominance, a new approach is needed. Instead of reducing costs
+              with lower wages and government subsidies, we envision a future
+              inspired by our past&ndash; where abundance is created through
+              American ingenuity and automation.
+            </p>
+            <p className="text-xl text-balance tracking-tight">
+              AI and robotics are changing the underlying economics of
+              manufacturing. We have a chance to reinvent the American
+              production base, not by longing for the past, but by building the
+              future.
+            </p>
+            <div>
+              <Button size="lg">Join Us</Button>
+            </div>
+          </div>
         </div>
         <div className="w-full relative">
           <div className="top-[3px] absolute left-0 w-full h-px bg-accent" />
@@ -222,6 +234,7 @@ function Mission() {
     </div>
   );
 }
+
 function useVideoBackground({
   videoSrc,
   className,
