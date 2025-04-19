@@ -1,5 +1,6 @@
 import {
   isRouteErrorResponse,
+  Link,
   Links,
   Meta,
   Outlet,
@@ -73,11 +74,10 @@ export const meta: MetaFunction = ({ data }) => {
       content:
         "Neofactory builds and operates automated production lines for high-precision industries",
     },
-    // {
-    //   property: "og:image",
-    //   // TODO:
-    //   content: `${siteUrl}/screenshots/features-schedule.webp`,
-    // },
+    {
+      property: "og:image",
+      content: `${siteUrl}/twitter-card.jpg`,
+    },
     {
       name: "twitter:card",
       content: "summary_large_image",
@@ -95,10 +95,10 @@ export const meta: MetaFunction = ({ data }) => {
       content:
         "Neofactory builds and operates automated production lines for high-precision industries",
     },
-    // {
-    //   name: "twitter:image",
-    //   content: `${siteUrl}/screenshots/features-schedule.webp`,
-    // },
+    {
+      name: "twitter:image",
+      content: `${siteUrl}/twitter-card.jpg`,
+    },
   ];
 };
 
@@ -125,14 +125,14 @@ const Document = forwardRef<
       </head>
       <body
         suppressHydrationWarning
-        className="h-[100dvh] w-[100dvw] flex flex-col bg-background text-foreground antialiased [selection]:bg-[#00cc9937] selection:text-[#007763fd] dark:selection:bg-[#00fff61d] dark:selection:text-[#67ffded2]"
+        className="h-[100dvh] w-[100dvw] flex flex-col bg-background text-foreground antialiased [selection]:bg-[#fff] selection:text-[#000] dark:selection:bg-primary dark:selection:text-[#fff]"
       >
-        <header className="flex select-none items-center px-6 md:px-8 lg:px-12 xl:px-24 h-[var(--header-height)] fixed top-0 left-0 right-0 z-header">
+        <header className="max-w-section mx-auto flex select-none items-center px-6 md:px-8 lg:px-12 xl:px-[5.9vw] h-[var(--header-height)] fixed top-0 left-0 right-0 z-header">
           <div className="flex items-center justify-between gap-2 z-logo text-foreground w-full">
             <Logo isLightBackground={isLightBackground} />
             <div className="flex items-center gap-2">
-              <Button variant="secondary" className="cursor-pointer">
-                Mission
+              <Button variant="secondary" className="cursor-pointer" asChild>
+                <Link to="/#mission">Mission</Link>
               </Button>
 
               <Button variant="default" className="cursor-pointer">

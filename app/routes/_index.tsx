@@ -24,11 +24,11 @@ function Hero() {
   return (
     <div
       ref={sectionRef}
-      className="section bg-background flex flex-col items-center justify-center lg:justify-end gap-8 h-[100dvh] text-white z-logo relative overflow-hidden w-full px-section py-[80px]"
+      className="section max-w-section mx-auto bg-background flex flex-col items-center justify-center lg:justify-end gap-8 h-[100dvh] text-white z-logo relative overflow-hidden w-full px-section py-[80px]"
     >
       {videoContent}
 
-      <div className="max-w-section !my-0 grid-layout z-20 relative">
+      <div className="max-w-section !my-0 grid-layout z-20 relative gap-4">
         <h1 className="select-none max-lg:mb-[20px] col-span-full lg:col-span-7 uppercase text-[32px] xs:text-[42px] md:text-[40px] lg:text-[46px] xl:text-[67px] 2xl:text-[80px] leading-heading font-bold text-wrap-balance font-display ">
           Full Factory Automation
         </h1>
@@ -66,7 +66,7 @@ const features = [
 
 function Features() {
   return (
-    <div className="section flex flex-col items-center justify-center gap-8 min-h-[110dvh] bg-foreground text-muted">
+    <div className="section flex flex-col items-center justify-center gap-8 min-h-[100dvh] bg-foreground text-muted">
       <div className="flex flex-col w-full max-w-section mx-auto px-section gap-24">
         <div className="w-full relative">
           <h2 className="text-base font-medium tracking-tighter top-[-22px] absolute left-0">
@@ -79,7 +79,7 @@ function Features() {
           {features.map((feature) => (
             <div className="bg-muted rounded-lg p-6 flex flex-col gap-4">
               <img src={feature.icon} alt={feature.title} className="size-16" />
-              <h3 className="text-xl tracking-tight text-white">
+              <h3 className="text-xl font-medium tracking-tighter text-white">
                 {feature.title}
               </h3>
               <p className="text-base font-light tracking-tight text-muted-foreground text-balance">
@@ -102,7 +102,7 @@ const plans = [
     title: "Simulate",
     icon: "/icons/cube.svg",
     shortDescription:
-      "We've built a digital twin that allows us to simulate and solve costly problems before they happen.",
+      "We've built a digital twin that allows us to simulate and solve costly problems.",
   },
 
   {
@@ -126,9 +126,8 @@ const plans = [
 
 function Plan() {
   return (
-    <div className="section flex flex-col items-center justify-start gap-8 min-h-[110dvh] bg-accent z-logo relative overflow-hidden py-32 px-6">
+    <div className="section flex flex-col items-center justify-start gap-8 min-h-[100dvh] bg-accent z-logo relative overflow-hidden py-32 px-6">
       <DotPattern
-        glow
         className={cn(
           "[mask-image:radial-gradient(40vw_circle_at_center,white,transparent)]",
           "md:opacity-100"
@@ -136,7 +135,7 @@ function Plan() {
       />
 
       <div className="max-w-2xl w-full flex flex-col mx-auto mt-12 gap-8 z-50">
-        <h2 className="text-2xl font-medium text-center uppercase">
+        <h2 className="text-2xl font-medium tracking-tight text-center uppercase">
           The path to hyper-scale
         </h2>
         <p className="text-base font-light text-muted-foreground text-center">
@@ -147,12 +146,12 @@ function Plan() {
         {plans.map((item, index) => (
           <div
             key={item.title}
-            className="group w-full rounded bg-accent p-6 border border-border/50 hover:border-border flex justify-between items-center backdrop-filter backdrop-blur-xl bg-opacity-5"
+            className="group w-full rounded bg-accent p-6 border border-border/50 hover:border-border flex gap-6 justify-between items-center backdrop-filter backdrop-blur-xl bg-opacity-5"
           >
             <div className="flex flex-col flex-grow items-start justify-start gap-2">
               <div className="flex items-center justify-start gap-2">
                 <img src={item.icon} alt={item.title} className="size-6" />
-                <h3 className="text-xl font-display uppercase text-white">
+                <h3 className="text-2xl font-semibold tracking-tight text-white">
                   {item.title}
                 </h3>
               </div>
@@ -189,31 +188,30 @@ function Demo() {
 
 function Mission() {
   return (
-    <div className="section flex flex-col items-center justify-center gap-8 min-h-[110dvh] bg-foreground text-muted">
+    <div
+      id="mission"
+      className="section flex flex-col items-center justify-center gap-8 min-h-[100dvh] bg-foreground text-muted"
+    >
       <div className="flex flex-col w-full max-w-section mx-auto px-8 gap-24 py-12 px-section">
         <div className="w-full relative">
           <div className="top-[3px] absolute left-0 w-full h-px bg-accent" />
-          <div className="top-[2px] absolute left-0 w-[240px] h-[3px] bg-accent" />
+          <div className="top-[2px] absolute left-0 w-[260px] h-[3px] bg-accent" />
           <h2 className="text-sm font-medium tracking-tighter top-[10px] absolute left-0">
-            Our Mission
+            American abundance through automation
           </h2>
         </div>
         <div className="flex flex-col max-w-2xl w-full mx-auto gap-8 ">
           <p className="text-xl text-balance tracking-tight">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur.
+            We believe that in order to restore American manufacturing
+            dominance, a new approach is needed. Instead of reducing costs with
+            lower wages and government subsidies, we envision a future inspired
+            by our past&ndash; where abundance is created through American
+            ingenuity and automation.
           </p>
           <p className="text-xl text-balance tracking-tight">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur.
+            AI and robotics are changing the underlying economics of
+            manufacturing. We have a chance to reinvent the American production
+            base, not by longing for the past, but by building the future.
           </p>
         </div>
         <div className="w-full relative">
@@ -237,6 +235,7 @@ function useVideoBackground({
   const sectionRef = useRef<HTMLDivElement>(null);
   const hlsRef = useRef<Hls | null>(null);
   const lastPlayPositionRef = useRef<number>(0);
+  const isInViewRef = useRef<boolean>(false);
 
   useEffect(() => {
     setMounted(true);
@@ -248,7 +247,25 @@ function useVideoBackground({
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
-        setIsInView(entry.isIntersecting);
+        const isNowInView = entry.isIntersecting;
+
+        // Only update state if the view status has changed and it's the first render
+        if (isNowInView !== isInViewRef.current) {
+          isInViewRef.current = isNowInView;
+          setIsInView(isNowInView);
+
+          // Directly control video playback without waiting for re-render
+          if (videoRef.current) {
+            if (isNowInView) {
+              videoRef.current.play().catch((error) => {
+                console.warn("Auto-play was prevented:", error);
+              });
+            } else {
+              lastPlayPositionRef.current = videoRef.current.currentTime;
+              videoRef.current.pause();
+            }
+          }
+        }
       },
       { threshold: 0.3 }
     );
@@ -286,7 +303,7 @@ function useVideoBackground({
         hlsRef.current = hls;
 
         hls.on(Hls.Events.MANIFEST_PARSED, () => {
-          if (isInView) {
+          if (isInViewRef.current) {
             video.play().catch((error) => {
               console.warn("Auto-play was prevented:", error);
             });
@@ -297,17 +314,6 @@ function useVideoBackground({
       else {
         console.warn("HLS is not supported in your browser");
       }
-    }
-
-    // Play or pause based on visibility
-    if (isInView) {
-      video.play().catch((error) => {
-        console.warn("Auto-play was prevented:", error);
-      });
-    } else {
-      // Store current position before pausing
-      lastPlayPositionRef.current = video.currentTime;
-      video.pause();
     }
 
     // Cleanup on unmount
@@ -321,7 +327,7 @@ function useVideoBackground({
         hlsRef.current = null;
       }
     };
-  }, [mounted, isInView, videoSrc]);
+  }, [mounted, videoSrc]);
 
   return {
     sectionRef,
