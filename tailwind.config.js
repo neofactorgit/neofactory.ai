@@ -79,7 +79,7 @@ export default {
       fontFamily: {
         sans: ["Geist Variable", ...fontFamily.sans],
         mono: ["Geist Mono Variable", ...fontFamily.mono],
-        display: [["Special Gothic Expanded One"], ...fontFamily.sans],
+        display: ["Montserrat", ...fontFamily.sans],
       },
       width: {
         "form-sm": "360px",

@@ -1,4 +1,3 @@
-import { Link } from "@remix-run/react";
 import { SocialIcon } from "./social-icon";
 
 export function Footer() {
@@ -11,14 +10,9 @@ export function Footer() {
             <a className="text-white select-none" href="/">
               <div className="flex items-center gap-1.5">
                 <img
-                  src="/brand/logo-long-dark.svg"
-                  alt="neofactory Logo Dark"
-                  className="h-5 w-auto block dark:hidden"
-                />
-                <img
-                  src="/brand/logo-long-light.svg"
-                  alt="neofactory Logo Light"
-                  className="h-5 w-auto hidden dark:block"
+                  src="/brand/neofactory-white.svg"
+                  alt="neofactory logo"
+                  className="h-5 w-auto"
                 />
               </div>
             </a>
@@ -29,7 +23,7 @@ export function Footer() {
               <SocialIcon type="github" href="#" />
             </div>
           </div>
-          <div className="col-span-1 flex flex-col gap-1">
+          {/* <div className="col-span-1 flex flex-col gap-1">
             <p className="font-medium py-1 col-span-1 text-sm text-white">
               Contact
             </p>
@@ -70,7 +64,7 @@ export function Footer() {
                 ))}
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

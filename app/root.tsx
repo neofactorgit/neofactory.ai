@@ -131,13 +131,12 @@ const Document = forwardRef<
           <div className="flex items-center justify-between gap-2 z-logo text-foreground w-full">
             <Logo isLightBackground={isLightBackground} />
             <div className="flex items-center gap-2">
-              <div className="flex items-center gap-0">
-                <Button variant="secondary" className="cursor-pointer">
-                  Our Mission
-                </Button>
-              </div>
+              <Button variant="secondary" className="cursor-pointer">
+                Mission
+              </Button>
+
               <Button variant="default" className="cursor-pointer">
-                Contact
+                Join Us
               </Button>
             </div>
           </div>
