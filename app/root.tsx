@@ -1,6 +1,5 @@
 import {
   isRouteErrorResponse,
-  Link,
   Links,
   Meta,
   Outlet,
@@ -131,10 +130,6 @@ const Document = forwardRef<
           <div className="flex items-center justify-between gap-2 z-logo text-foreground w-full">
             <Logo isLightBackground={isLightBackground} />
             <div className="flex items-center gap-2">
-              <Button variant="secondary" className="cursor-pointer" asChild>
-                <Link to="/#mission">Mission</Link>
-              </Button>
-
               <Button variant="default" className="cursor-pointer">
                 Join Us
               </Button>

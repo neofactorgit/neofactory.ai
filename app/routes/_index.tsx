@@ -1,6 +1,6 @@
-import { DotPattern } from "components/magicui/dot-pattern";
 import Hls from "hls.js";
 import { useEffect, useRef, useState } from "react";
+import { DotPattern } from "~/components/dot-pattern";
 import { Button } from "~/components/ui/button";
 
 import { cn } from "~/lib/utils";
