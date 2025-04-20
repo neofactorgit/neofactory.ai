@@ -206,7 +206,7 @@ function Mission() {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="py-20">
-            <h2 className="text-5xl font-display tracking-tight text-left uppercase">
+            <h2 className="text-3xl lg:text-5xl font-display tracking-tight text-left uppercase">
               American abundance through automation
             </h2>
           </div>
