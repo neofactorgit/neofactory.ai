@@ -55,7 +55,7 @@ export function Footer() {
             <motion.path
               key={index}
               d={d}
-              fill={`url(#paint${index}_linear_49_17)`}
+              fill={`url(#paint${index}_linear)`}
               initial={{ opacity: 0, x: -10, y: -10 }}
               animate={controls}
               transition={{ delay: index * 0.1, duration: 0.5 }}
@@ -65,7 +65,7 @@ export function Footer() {
             {Array.from({ length: 10 }).map((_, index) => (
               <linearGradient
                 key={index}
-                id={`paint${index}_linear_49_17`}
+                id={`paint${index}_linear`}
                 x1="235.595"
                 y1="1.8999"
                 x2="235.595"
