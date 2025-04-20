@@ -2,6 +2,7 @@ import Hls from "hls.js";
 import { useEffect, useRef, useState } from "react";
 import { DotPattern } from "~/components/dot-pattern";
 import { Button } from "~/components/ui/button";
+import { useDrawer } from "~/contexts/DrawerContext";
 
 import { cn } from "~/lib/utils";
 
@@ -68,7 +69,7 @@ const features = [
 function Features() {
   return (
     <div className="section flex flex-col items-center justify-center gap-8 min-h-[100dvh] bg-foreground text-muted">
-      <div className="flex flex-col w-full max-w-section mx-auto px-section gap-24">
+      <div className="flex flex-col w-full max-w-section mx-auto px-section gap-24 py-12">
         <div className="w-full relative">
           <h2 className="text-base font-medium tracking-tighter top-[-22px] absolute left-0">
             Bridging the gap between people, AI and robotics
@@ -188,6 +189,8 @@ function Demo() {
 }
 
 function Mission() {
+  const { openDrawer } = useDrawer();
+
   return (
     <div
       id="mission"
@@ -222,7 +225,9 @@ function Mission() {
               future.
             </p>
             <div>
-              <Button size="lg">Join Us</Button>
+              <Button size="lg" onClick={openDrawer}>
+                Join Us
+              </Button>
             </div>
           </div>
         </div>
