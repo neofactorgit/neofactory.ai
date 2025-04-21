@@ -1,8 +1,8 @@
+import { Link } from "@remix-run/react";
 import Hls from "hls.js";
 import { useEffect, useRef, useState } from "react";
 import { DotPattern } from "~/components/dot-pattern";
 import { Button } from "~/components/ui/button";
-import { useDrawer } from "~/contexts/DrawerContext";
 
 import { cn } from "~/lib/utils";
 
@@ -137,7 +137,7 @@ function Plan() {
       />
 
       <div className="max-w-2xl w-full flex flex-col mx-auto mt-12 gap-8 z-50">
-        <h2 className="text-2xl font-medium tracking-tight text-center uppercase">
+        <h2 className="text-3xl font-medium tracking-tight text-center uppercase">
           The path to hyper-scale
         </h2>
         <p className="text-base font-light text-muted-foreground text-center">
@@ -189,8 +189,6 @@ function Demo() {
 }
 
 function Mission() {
-  const { openDrawer } = useDrawer();
-
   return (
     <div
       id="mission"
@@ -225,8 +223,8 @@ function Mission() {
               future.
             </p>
             <div>
-              <Button size="lg" onClick={openDrawer}>
-                Join Us
+              <Button size="lg" asChild>
+                <Link to="/contact">Join Us</Link>
               </Button>
             </div>
           </div>

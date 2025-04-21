@@ -1,40 +1,21 @@
 import {
   isRouteErrorResponse,
+  Link,
   Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
-  useFetcher,
   useRouteError,
 } from "@remix-run/react";
 import { Analytics } from "@vercel/analytics/remix";
 import type { LoaderFunctionArgs, MetaFunction } from "@vercel/remix";
 import { json } from "@vercel/remix";
-import { Check } from "lucide-react";
 import { forwardRef, ReactNode, useEffect, useRef, useState } from "react";
-import {
-  Drawer,
-  DrawerContent,
-  DrawerDescription,
-  DrawerHeader,
-  DrawerTitle,
-} from "~/components/ui/drawer";
 import Tailwind from "~/styles/tailwind.css?url";
 import { Footer } from "./components/footer";
 import { Logo } from "./components/logo";
 import { Button } from "./components/ui/button";
-import { Input } from "./components/ui/input";
-import { Label } from "./components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "./components/ui/select";
-import { Textarea } from "./components/ui/textarea";
-import { DrawerProvider, useDrawer } from "./contexts/DrawerContext";
 
 export const config = { runtime: "edge" };
 
@@ -120,150 +101,6 @@ export const meta: MetaFunction = ({ data }) => {
   ];
 };
 
-// Drawer component that uses the context
-function JoinUsDrawer() {
-  const { isDrawerOpen, closeDrawer } = useDrawer();
-  const [isBot, setIsBot] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [role, setRole] = useState("partner");
-  const fetcher = useFetcher<{ success: boolean }>();
-
-  return (
-    <Drawer open={isDrawerOpen} onOpenChange={closeDrawer}>
-      <DrawerContent>
-        <div className="mx-auto w-full max-w-xl min-h-[70dvh]">
-          <DrawerHeader>
-            <DrawerTitle>Build with us</DrawerTitle>
-            <DrawerDescription>
-              We're always looking for talented people to join our team.
-            </DrawerDescription>
-          </DrawerHeader>
-          <div className="p-4 pb-0">
-            <div className="mx-auto flex flex-col w-full mb-28">
-              {/* Honeypot form - hidden from humans but visible to bots */}
-              <div className="sr-only">
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    setIsBot(true);
-                  }}
-                >
-                  <input type="text" name="name" />
-                  <input type="email" name="email" />
-                  <input type="submit" />
-                </form>
-              </div>
-
-              {isSubmitted ? (
-                <div className="flex flex-col items-center justify-center min-h-[400px] space-y-4">
-                  <div className="animate-bounce">
-                    <Check className="w-16 h-16 text-green-500" />
-                  </div>
-                  <h2 className="text-2xl font-bold animate-fade-in">
-                    Thank you for your interest!
-                  </h2>
-                  <p className="text-center text-muted-foreground animate-fade-in-delayed">
-                    We'll be in touch with you shortly.
-                  </p>
-                </div>
-              ) : (
-                <fetcher.Form
-                  action="/contact"
-                  method={isBot ? "get" : "post"}
-                  className="flex flex-col gap-5"
-                >
-                  <div className="relative flex flex-col gap-2">
-                    <Label htmlFor="name">Name</Label>
-                    <div className="relative flex flex-1">
-                      <Input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="Your name"
-                        required
-                        autoComplete="name"
-                      />
-                    </div>
-                  </div>
-                  <div className="relative flex flex-col gap-2">
-                    <Label htmlFor="role">What best describes you?</Label>
-                    <div className="relative flex flex-1">
-                      <input type="hidden" name="role" value={role} />
-                      <Select onValueChange={setRole} defaultValue={role}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select a verified email to display" />
-                        </SelectTrigger>
-
-                        <SelectContent>
-                          <SelectItem value="partner">
-                            Design Partner
-                          </SelectItem>
-                          <SelectItem value="employee">Employee</SelectItem>
-                          <SelectItem value="investor">Investor</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
-                  <div className="grid gap-5 lg:grid-cols-2">
-                    <div className="relative flex flex-col gap-2">
-                      <Label htmlFor="email">Work Email</Label>
-                      <div className="relative flex flex-1">
-                        <Input
-                          type="email"
-                          id="email"
-                          name="email"
-                          placeholder="you@acme.com"
-                          required
-                          autoComplete="email"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="relative flex flex-col gap-2">
-                      <Label htmlFor="companyName">Company Name</Label>
-                      <div className="relative flex flex-1">
-                        <Input
-                          type="text"
-                          id="companyName"
-                          name="companyName"
-                          placeholder="Acme, Inc."
-                          required
-                          autoComplete="organization"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="relative flex flex-col gap-2">
-                    <Label htmlFor="message">Message</Label>
-                    <div className="relative flex flex-1">
-                      <Textarea
-                        id="message"
-                        name="message"
-                        placeholder="Please tell us about yourself"
-                        className="h-[113px]"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <Button
-                      type="submit"
-                      disabled={fetcher.state !== "idle" || isBot}
-                    >
-                      Submit
-                    </Button>
-                  </div>
-                </fetcher.Form>
-              )}
-            </div>
-          </div>
-        </div>
-      </DrawerContent>
-    </Drawer>
-  );
-}
-
 const Document = forwardRef<
   HTMLDivElement,
   {
@@ -276,8 +113,6 @@ const Document = forwardRef<
   { children, title = "neofactory", mode = "dark", isLightBackground },
   ref
 ) {
-  const { openDrawer } = useDrawer();
-
   return (
     <html lang="en" className={`${mode} h-full overflow-x-hidden w-[100dvw]`}>
       <head>
@@ -295,12 +130,8 @@ const Document = forwardRef<
           <div className="flex items-center justify-between gap-2 z-logo text-foreground w-full">
             <Logo isLightBackground={isLightBackground} />
             <div className="flex items-center gap-2">
-              <Button
-                variant="default"
-                className="cursor-pointer"
-                onClick={openDrawer}
-              >
-                Join Us
+              <Button variant="default" className="cursor-pointer" asChild>
+                <Link to="/contact">Join Us</Link>
               </Button>
             </div>
           </div>
@@ -312,7 +143,7 @@ const Document = forwardRef<
             <Footer />
           </main>
         </div>
-        <JoinUsDrawer />
+
         <ScrollRestoration />
         <Scripts />
         <Analytics />
@@ -400,15 +231,13 @@ export default function App() {
   }
 
   return (
-    <DrawerProvider>
-      <Document
-        mode="dark"
-        ref={sectionsRef}
-        isLightBackground={isLightBackground}
-      >
-        <Outlet />
-      </Document>
-    </DrawerProvider>
+    <Document
+      mode="dark"
+      ref={sectionsRef}
+      isLightBackground={isLightBackground}
+    >
+      <Outlet />
+    </Document>
   );
 }
 
@@ -424,20 +253,18 @@ export function ErrorBoundary() {
   const sectionsRef = useRef<HTMLDivElement>(null);
 
   return (
-    <DrawerProvider>
-      <Document title="Error!" ref={sectionsRef} isLightBackground={false}>
-        <div className="dark">
-          <div className="flex flex-col w-[100dvw] h-screen items-center justify-center space-y-4 ">
-            <img
-              src="/brand/logo-stacked-mixed.svg"
-              alt="Neofactory Logo"
-              className="block max-w-[120px]"
-            />
-            <h1 className="text-2xl font-bold">Something went wrong</h1>
-            <p className="text-muted-foreground max-w-2xl">{message}</p>
-          </div>
+    <Document title="Error!" ref={sectionsRef} isLightBackground={false}>
+      <div className="dark">
+        <div className="flex flex-col w-[100dvw] h-screen items-center justify-center space-y-4 ">
+          <img
+            src="/brand/neofactory-white.svg"
+            alt="Neofactory Logo"
+            className="block max-w-[240px]"
+          />
+          <h1 className="text-2xl font-bold">Something went wrong</h1>
+          <p className="text-muted-foreground max-w-2xl">{message}</p>
         </div>
-      </Document>
-    </DrawerProvider>
+      </div>
+    </Document>
   );
 }
