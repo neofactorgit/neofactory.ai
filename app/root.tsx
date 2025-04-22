@@ -6,6 +6,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLocation,
   useRouteError,
 } from "@remix-run/react";
 import { Analytics } from "@vercel/analytics/remix";
@@ -126,12 +127,14 @@ const Document = forwardRef<
         suppressHydrationWarning
         className="h-[100dvh] w-[100dvw] flex flex-col bg-background text-foreground antialiased [selection]:bg-[#fff] selection:text-[#000] dark:selection:bg-primary dark:selection:text-[#fff]"
       >
-        <header className="max-w-section mx-auto flex select-none items-center px-6 md:px-8 lg:px-12 xl:px-[5.9vw] h-[var(--header-height)] fixed top-0 left-0 right-0 z-header">
+        <header className="max-w-section mx-auto flex select-none items-center px-6 md:px-8 lg:px-12 xl:px-[6vw] h-[var(--header-height)] fixed top-0 left-0 right-0 z-header">
           <div className="flex items-center justify-between gap-2 z-logo text-foreground w-full">
             <Logo isLightBackground={isLightBackground} />
             <div className="flex items-center gap-2">
               <Link to="/contact" className="bg-primary text-sm">
-                <span className={cn("corners", isLightBackground && "hidden")}>
+                <span
+                  className={cn("credit-jhey", isLightBackground && "hidden")}
+                >
                   <span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -213,6 +216,11 @@ const Document = forwardRef<
 export default function App() {
   const [isLightBackground, setIsLightBackground] = useState(false);
   const sectionsRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    setIsLightBackground(false);
+  }, [location.pathname]);
 
   useEffect(() => {
     const logoElement = document.querySelector(

@@ -33,7 +33,7 @@
 
     --header-height: 70px;
     --num-grid-cols: 12;
-    --px-section: 5.9vw;
+    --px-section: 6vw;
     --py-section: calc(var(--vh) * 16);
     --testing-grid-cols: 12;
     --column-gap: 2vw;
@@ -94,13 +94,13 @@ button.bg-primary {
   position: relative;
 
   &:is(:focus-visible, :hover) {
-    .corners span:nth-of-type(even) {
+    .credit-jhey span:nth-of-type(even) {
       transform: translateY(100cqh);
     }
-    .corners span:nth-of-type(odd) {
+    .credit-jhey span:nth-of-type(odd) {
       transform: translateX(100cqi);
     }
-    .corners span {
+    .credit-jhey span {
       transition: transform 0.26s 0.12s ease-out;
       svg {
         rotate: 360deg;
@@ -109,7 +109,7 @@ button.bg-primary {
     }
   }
 
-  .corners {
+  .credit-jhey {
     container-type: size;
     pointer-events: none;
     position: absolute;
