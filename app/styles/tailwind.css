@@ -79,6 +79,72 @@
   }
 }
 
+a.bg-primary,
+button.bg-primary {
+  font-family: Geist Mono Variable, ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  position: relative;
+  border: 0;
+  line-height: 1;
+  transition-property: background, color;
+  transition-duration: 0.26s;
+  transition-timing-function: ease-out;
+  position: relative;
+
+  &:is(:focus-visible, :hover) {
+    .corners span:nth-of-type(even) {
+      transform: translateY(100cqh);
+    }
+    .corners span:nth-of-type(odd) {
+      transform: translateX(100cqi);
+    }
+    .corners span {
+      transition: transform 0.26s 0.12s ease-out;
+      svg {
+        rotate: 360deg;
+        transition: rotate 0.26s 0.12s ease-out;
+      }
+    }
+  }
+
+  .corners {
+    container-type: size;
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+
+    span {
+      width: 10px;
+      height: 10px;
+      display: grid;
+      place-items: center;
+      offset-path: border-box;
+
+      svg {
+        width: 100%;
+      }
+
+      &:nth-of-type(1) {
+        offset-distance: 0;
+      }
+      &:nth-of-type(2) {
+        offset-distance: 100cqi;
+      }
+      &:nth-of-type(3) {
+        offset-rotate: 180deg;
+        offset-distance: calc(100cqi + 100cqh);
+      }
+      &:nth-of-type(4) {
+        offset-rotate: 180deg;
+        offset-distance: -100cqh;
+      }
+    }
+  }
+}
+
 .max-w-section {
   width: 100%;
   max-width: 1600px;
