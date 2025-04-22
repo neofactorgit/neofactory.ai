@@ -137,10 +137,10 @@ function Plan() {
       />
 
       <div className="max-w-2xl w-full flex flex-col mx-auto mt-12 gap-8 z-50">
-        <h2 className="text-3xl font-display font-light tracking-tight text-center uppercase">
+        <h2 className="text-xl lg:text-3xl font-display font-light tracking-tight text-center uppercase">
           The path to hyper-scale
         </h2>
-        <p className="text-base font-normal text-muted-foreground text-center">
+        <p className="text-sm lg:text-base font-normal text-muted-foreground text-center">
           Scaling high-mix low-volume manufacturing requires a new approach to
           automation. It's not enough to automate the machines. A new layer is
           needed to automate operations.
