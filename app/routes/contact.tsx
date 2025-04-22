@@ -90,7 +90,7 @@ export default function Contact() {
     <div className="flex flex-1 flex-col">
       <div className="mx-auto flex w-full flex-col px-4 md:px-6 max-w-4xl pt-36">
         <div className="flex flex-col gap-4 lg:items-center lg:text-center mb-16">
-          <h1 className="font-semibold text-6xl font-display uppercase tracking-tight">
+          <h1 className="font-semibold text-6xl font-display uppercase tracking-tight bg-gradient-to-b from-zinc-300 to-zinc-800 bg-clip-text text-transparent">
             Build with us
           </h1>
         </div>
