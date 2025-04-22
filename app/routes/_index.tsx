@@ -137,7 +137,7 @@ function Plan() {
       />
 
       <div className="max-w-2xl w-full flex flex-col mx-auto mt-12 gap-8 z-50">
-        <h2 className="text-3xl font-medium tracking-tight text-center uppercase">
+        <h2 className="text-3xl font-display font-light tracking-tight text-center uppercase">
           The path to hyper-scale
         </h2>
         <p className="text-base font-normal text-muted-foreground text-center">
@@ -262,7 +262,7 @@ function Mission() {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="py-20">
-            <h2 className="text-3xl lg:text-5xl font-display tracking-tight text-left uppercase">
+            <h2 className="text-3xl lg:text-5xl font-display font-bold tracking-tight text-left uppercase">
               American abundance through automation
             </h2>
           </div>
