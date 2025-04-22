@@ -13,7 +13,7 @@ export const meta: MetaFunction = () => {
 
 export default function Brand() {
   return (
-    <div className="flex flex-1 flex-col">
+    <div className="flex flex-1 flex-col min-h-[calc(100dvh-220px)]">
       <div className="mx-auto flex w-full flex-col px-4 md:px-6 lg:px-8 3xl:pt-32 4xl:pt-36 max-w-4xl py-28">
         <div className="flex flex-col gap-4 lg:items-center lg:text-center mb-16">
           <h1 className="font-semibold text-6xl font-display uppercase tracking-tight bg-gradient-to-b from-zinc-300 to-zinc-800 bg-clip-text text-transparent">
