@@ -131,7 +131,10 @@ const Document = forwardRef<
           <div className="flex items-center justify-between gap-2 z-logo text-foreground w-full">
             <Logo isLightBackground={isLightBackground} />
             <div className="flex items-center gap-2">
-              <Link to="/contact" className="bg-primary text-sm">
+              <Link
+                to="/contact"
+                className="bg-primary text-sm credit-jhey-animation"
+              >
                 <span
                   className={cn("credit-jhey", isLightBackground && "hidden")}
                 >

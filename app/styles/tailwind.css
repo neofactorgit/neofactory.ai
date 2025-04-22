@@ -79,20 +79,8 @@
   }
 }
 
-a.bg-primary,
-button.bg-primary {
-  font-family: Geist Mono Variable, ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, "Liberation Mono", "Courier New", monospace;
-  padding: 0.75rem 1rem;
-  font-weight: 500;
-  position: relative;
-  border: 0;
-  line-height: 1;
-  transition-property: background, color;
-  transition-duration: 0.26s;
-  transition-timing-function: ease-out;
-  position: relative;
-
+/* Common styles for credit-jhey animation */
+.credit-jhey-animation {
   &:is(:focus-visible, :hover) {
     .credit-jhey span:nth-of-type(even) {
       transform: translateY(100cqh);
@@ -143,6 +131,28 @@ button.bg-primary {
       }
     }
   }
+}
+
+a.bg-primary,
+button.bg-primary {
+  font-family: Geist Mono Variable, ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  position: relative;
+  border: 0;
+  line-height: 1;
+  transition-property: background, color;
+  transition-duration: 0.26s;
+  transition-timing-function: ease-out;
+  position: relative;
+
+  @extend .credit-jhey-animation;
+}
+
+.group {
+  position: relative;
+  @extend .credit-jhey-animation;
 }
 
 .max-w-section {
