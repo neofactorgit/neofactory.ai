@@ -56,20 +56,20 @@ const features = [
     title: "Precision Processes",
     icon: "/icons/diamond.svg",
     description:
-      "A precision machine can destroy itself in 200 milliseconds if not properly calibrated. A blank can be ruined by a scratch. Automated monitoring and precision control prevent costly errors and ensure top quality.",
+      "We've built some of the world's most advanced precision manufacturing processes using state of the art technology. But automating the machines is just the beginning.",
   },
   {
     title: "Automated Operations",
     icon: "/icons/triangle.svg",
     description:
-      "Our automated operations layer orchestrates the coordination of thousands of subtasks to create a factory that can adapt to changing requirements in real-time.",
+      "Our novel automated operations layer orchestrates the coordination of thousands of subtasks to create a factory that can adapt to changing requirements in real-time.",
   },
 ];
 
 function Features() {
   return (
     <div className="section flex flex-col items-center justify-center gap-8 min-h-[100dvh] bg-foreground text-muted">
-      <div className="flex flex-col w-full max-w-section mx-auto px-section gap-24 py-12">
+      <div className="flex flex-col w-full max-w-section mx-auto px-section gap-24 py-24 lg:py-12">
         <div className="w-full relative">
           <h2 className="text-base font-medium tracking-tighter top-[-22px] absolute left-0">
             Bridging the gap between people, AI and robotics
@@ -79,7 +79,7 @@ function Features() {
         </div>
         <div className="grid w-full grid-cols-1 lg:grid-cols-3 gap-12">
           {features.map((feature) => (
-            <div className="bg-muted rounded-lg p-6 flex flex-col gap-4">
+            <div className="bg-muted rounded-sm p-6 flex flex-col gap-4">
               <img src={feature.icon} alt={feature.title} className="size-16" />
               <h3 className="text-xl font-medium tracking-tighter text-white">
                 {feature.title}
