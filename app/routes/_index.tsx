@@ -131,7 +131,7 @@ function Plan() {
     <div className="section flex flex-col items-center justify-start gap-8 min-h-[100dvh] bg-accent z-logo relative overflow-hidden py-32 px-6">
       <DotPattern
         className={cn(
-          "[mask-image:radial-gradient(40vw_circle_at_center,white,transparent)]",
+          "[mask-image:radial-gradient(30vw_circle_at_center,white,transparent)]",
           "md:opacity-100"
         )}
       />
@@ -140,7 +140,7 @@ function Plan() {
         <h2 className="text-3xl font-medium tracking-tight text-center uppercase">
           The path to hyper-scale
         </h2>
-        <p className="text-base font-light text-muted-foreground text-center">
+        <p className="text-base font-normal text-muted-foreground text-center">
           Scaling high-mix low-volume manufacturing requires a new approach to
           automation. It's not enough to automate the machines. A new layer is
           needed to automate operations.
@@ -148,21 +148,21 @@ function Plan() {
         {plans.map((item, index) => (
           <div
             key={item.title}
-            className="group w-full rounded bg-accent p-6 border border-border/50 hover:border-border flex gap-6 justify-between items-center backdrop-filter backdrop-blur-xl bg-opacity-5"
+            className="group w-full bg-accent p-6 border border-border/50 hover:border-border flex gap-6 justify-between items-center backdrop-filter backdrop-blur-xl bg-opacity-5 shadow-xl"
           >
             <div className="flex flex-col flex-grow items-start justify-start gap-2">
               <div className="flex items-center justify-start gap-2">
                 <img src={item.icon} alt={item.title} className="size-6" />
-                <h3 className="text-xl font-medium tracking-tight text-white">
+                <h3 className="text-xl font-mono tracking-tight text-white">
                   {item.title}
                 </h3>
               </div>
-              <p className="text-sm font-light tracking-tight text-muted-foreground">
+              <p className="text-sm font-normal tracking-tight text-muted-foreground">
                 {item.shortDescription}
               </p>
             </div>
             <div className="flex flex-col items-end justify-center gap-2">
-              <span className="text-xl font-medium text-white/30 group-hover:text-white">
+              <span className="text-xl font-mono font-medium text-white/30 group-hover:text-white">
                 0{index + 1}
               </span>
             </div>
