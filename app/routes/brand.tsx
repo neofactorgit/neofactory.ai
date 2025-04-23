@@ -70,6 +70,50 @@ export default function Brand() {
               </Button>
             </div>
           </div>
+
+          <div className="flex flex-col gap-4 p-6 rounded-lg bg-card border dark:border-none shadow-md">
+            <div className="bg-black p-8 rounded-md flex items-center justify-center min-h-[160px]">
+              <img
+                src="/brand/neofactory-square-white.svg"
+                alt="White Logo"
+                className="h-24"
+              />
+            </div>
+            <div className="flex gap-4 justify-center">
+              <Button asChild variant="secondary" className="text-sm">
+                <a href="/brand/neofactory-square-white.svg" download>
+                  SVG
+                </a>
+              </Button>
+              <Button asChild variant="secondary" className="text-sm">
+                <a href="/brand/neofactory-square-white.png" download>
+                  PNG
+                </a>
+              </Button>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-4 p-6 rounded-lg bg-card border dark:border-none shadow-md">
+            <div className="bg-white p-8 rounded-md flex items-center justify-center">
+              <img
+                src="/brand/neofactory-square-black.svg"
+                alt="Black Logo"
+                className="h-24"
+              />
+            </div>
+            <div className="flex gap-4 justify-center">
+              <Button asChild variant="secondary" className="text-sm">
+                <a href="/brand/neofactory-square-black.svg" download>
+                  SVG
+                </a>
+              </Button>
+              <Button asChild variant="secondary" className="text-sm">
+                <a href="/brand/neofactory-square-black.png" download>
+                  PNG
+                </a>
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
