@@ -31,7 +31,7 @@ function Hero() {
       {videoContent}
 
       <div className="max-w-section !my-0 grid-layout z-20 relative gap-4">
-        <h1 className="select-none max-lg:mb-[20px] col-span-full lg:col-span-7 uppercase text-[32px] xs:text-[42px] md:text-[40px] lg:text-[46px] xl:text-[67px] 2xl:text-[80px] leading-heading font-bold text-wrap-balance font-display ">
+        <h1 className="select-none max-lg:mb-[20px] col-span-full lg:col-span-7 uppercase text-[32px] xs:text-[42px] md:text-[40px] lg:text-[46px] xl:text-[67px] 2xl:text-[80px] leading-heading font-bold text-wrap-balance font-display bg-gradient-to-b from-zinc-300 to-zinc-500 bg-clip-text text-transparent">
           Full Factory Automation
         </h1>
         <div className="col-span-full lg:col-span-5 lg:col-start-8 flex flex-col gap-base lg:mt-[-5.4px]">

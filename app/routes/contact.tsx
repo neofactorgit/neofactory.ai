@@ -51,7 +51,7 @@ export async function action({ request }: ActionFunctionArgs) {
 
   const slackClient = getSlackClient();
   await slackClient.sendMessage({
-    channel: "#leads",
+    channel: "#web-forms",
     text: "New lead 🎉",
     blocks: [
       {
