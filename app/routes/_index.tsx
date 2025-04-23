@@ -31,11 +31,11 @@ function Hero() {
       {videoContent}
 
       <div className="max-w-section !my-0 grid-layout z-20 relative gap-4">
-        <h1 className="select-none max-lg:mb-[20px] col-span-full lg:col-span-7 uppercase text-[32px] xs:text-[42px] md:text-[40px] lg:text-[46px] xl:text-[67px] 2xl:text-[80px] leading-heading font-bold text-wrap-balance font-display bg-gradient-to-b from-zinc-300 to-zinc-500 bg-clip-text text-transparent">
+        <h1 className="select-none max-lg:mb-[20px] col-span-full lg:col-span-7 uppercase text-[32px] xs:text-[42px] md:text-[40px] lg:text-[46px] xl:text-[67px] 2xl:text-[80px] leading-heading font-bold text-wrap-balance font-display bg-gradient-to-b from-foreground to-muted-foreground bg-clip-text text-transparent">
           Full Factory Automation
         </h1>
         <div className="col-span-full lg:col-span-5 lg:col-start-8 flex flex-col gap-base lg:mt-[-5.4px]">
-          <h2 className="xs:text-[24px] lg:text-[22px] xl:text-[24px] standard-type-body text-wrap-pretty">
+          <h2 className="xs:text-[24px] lg:text-[22px] xl:text-[24px] standard-type-body text-muted-foreground text-wrap-pretty">
             Neofactory builds and operates automated production lines for
             high-precision industries
           </h2>
