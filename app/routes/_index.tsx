@@ -20,7 +20,7 @@ export default function Route() {
 
 function Hero() {
   const { sectionRef, videoContent } = useVideoBackground({
-    videoSrc: "/videos/tool-build.m3u8",
+    videoSrc: "https://cdn.bradbarb.in/tool-build.m3u8",
   });
 
   return (
@@ -79,7 +79,10 @@ function Features() {
         </div>
         <div className="grid w-full grid-cols-1 lg:grid-cols-3 gap-12">
           {features.map((feature) => (
-            <div className="bg-muted rounded-sm p-6 flex flex-col gap-4">
+            <div
+              key={feature.title}
+              className="bg-muted rounded-sm p-6 flex flex-col gap-4"
+            >
               <img src={feature.icon} alt={feature.title} className="size-16" />
               <h3 className="text-xl font-medium tracking-tighter text-white">
                 {feature.title}
@@ -173,9 +176,9 @@ function Plan() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <path d="M5 12h14"></path>
                   <path d="M12 5v14"></path>
@@ -187,9 +190,9 @@ function Plan() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <path d="M5 12h14"></path>
                   <path d="M12 5v14"></path>
@@ -201,9 +204,9 @@ function Plan() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <path d="M5 12h14"></path>
                   <path d="M12 5v14"></path>
@@ -215,9 +218,9 @@ function Plan() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <path d="M5 12h14"></path>
                   <path d="M12 5v14"></path>
@@ -233,7 +236,7 @@ function Plan() {
 
 function Demo() {
   const { sectionRef, videoContent } = useVideoBackground({
-    videoSrc: "/videos/factory-floor.m3u8",
+    videoSrc: "https://cdn.bradbarb.in/factory-floor.m3u8",
   });
 
   return (

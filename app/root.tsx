@@ -21,7 +21,10 @@ import { cn } from "./lib/utils";
 export const config = { runtime: "edge" };
 
 export function links() {
-  return [{ rel: "stylesheet", href: Tailwind }];
+  return [
+    { rel: "stylesheet", href: Tailwind },
+    { rel: "preconnect", href: "https://cdn.bradbarb.in" },
+  ];
 }
 
 export async function loader({ request, params }: LoaderFunctionArgs) {
@@ -144,9 +147,9 @@ const Document = forwardRef<
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <path d="M5 12h14"></path>
                       <path d="M12 5v14"></path>
@@ -158,9 +161,9 @@ const Document = forwardRef<
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <path d="M5 12h14"></path>
                       <path d="M12 5v14"></path>
@@ -172,9 +175,9 @@ const Document = forwardRef<
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <path d="M5 12h14"></path>
                       <path d="M12 5v14"></path>
@@ -186,9 +189,9 @@ const Document = forwardRef<
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
                       <path d="M5 12h14"></path>
                       <path d="M12 5v14"></path>
