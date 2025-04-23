@@ -26,7 +26,7 @@ function Hero() {
   return (
     <div
       ref={sectionRef}
-      className="section max-w-section mx-auto bg-background flex flex-col items-center justify-center lg:justify-end gap-8 h-[100dvh] text-white z-logo relative overflow-hidden w-full px-section py-[80px]"
+      className="section max-w-section mx-auto bg-background flex flex-col items-center justify-end gap-8 h-[100dvh] text-white z-logo relative overflow-hidden w-full px-section py-[80px]"
     >
       {videoContent}
 
