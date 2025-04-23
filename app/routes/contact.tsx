@@ -37,7 +37,7 @@ export async function action({ request }: ActionFunctionArgs) {
 
   const formData = await request.formData();
   const name = String(formData.get("name"));
-  const role = String(formData.get("role"));
+  const intent = String(formData.get("intent"));
   const email = String(formData.get("email"));
   const company = String(formData.get("companyName"));
   const message = String(formData.get("message"));
@@ -62,7 +62,7 @@ export async function action({ request }: ActionFunctionArgs) {
             `*New Contact Form Submission* 🥁\n\n` +
             `*Contact Information*\n` +
             `• Name: ${name}\n` +
-            `• Role: ${role}\n` +
+            `• Intent: ${intent}\n` +
             `• Email: ${email}\n` +
             `• Company: ${company}\n\n` +
             `*Message*\n` +
@@ -79,7 +79,7 @@ export default function Contact() {
   const fetcher = useFetcher<typeof action>();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isBot, setIsBot] = useState(false);
-  const [role, setRole] = useState("partner");
+  const [intent, setIntent] = useState("Build with us");
   useEffect(() => {
     if (fetcher.data?.success) {
       setIsSubmitted(true);
@@ -144,18 +144,21 @@ export default function Contact() {
                 </div>
               </div>
               <div className="relative flex flex-col gap-2">
-                <Label htmlFor="role">What best describes you?</Label>
+                <Label htmlFor="intent">What do you want to do?</Label>
                 <div className="relative flex flex-1">
-                  <input type="hidden" name="role" value={role} />
-                  <Select onValueChange={setRole} defaultValue={role}>
+                  <input type="hidden" name="intent" value={intent} />
+                  <Select onValueChange={setIntent} defaultValue={intent}>
                     <SelectTrigger>
                       <SelectValue placeholder="Select a verified email to display" />
                     </SelectTrigger>
 
                     <SelectContent>
-                      <SelectItem value="partner">Design Partner</SelectItem>
-                      <SelectItem value="employee">Employee</SelectItem>
-                      <SelectItem value="investor">Investor</SelectItem>
+                      <SelectItem value="Build with us">
+                        Build with us
+                      </SelectItem>
+                      <SelectItem value="Work with us">Work with us</SelectItem>
+                      <SelectItem value="Invest in us">Invest in us</SelectItem>
+                      <SelectItem value="Other">Other</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
