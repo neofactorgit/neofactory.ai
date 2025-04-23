@@ -1,5 +1,4 @@
 import { Link } from "@remix-run/react";
-import { motion } from "framer-motion";
 import Hls from "hls.js";
 import { useEffect, useRef, useState } from "react";
 import { DotPattern } from "~/components/dot-pattern";
@@ -32,24 +31,14 @@ function Hero() {
       {videoContent}
 
       <div className="max-w-section !my-0 grid-layout z-20 relative gap-4">
-        <motion.h1
-          initial={{ opacity: 0, y: 10, filter: "blur(3px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 0.8 }}
-          className="select-none max-lg:mb-[20px] col-span-full lg:col-span-7 uppercase text-[32px] xs:text-[42px] md:text-[40px] lg:text-[46px] xl:text-[67px] 2xl:text-[80px] leading-heading font-bold text-wrap-balance font-display "
-        >
+        <h1 className="select-none max-lg:mb-[20px] col-span-full lg:col-span-7 uppercase text-[32px] xs:text-[42px] md:text-[40px] lg:text-[46px] xl:text-[67px] 2xl:text-[80px] leading-heading font-bold text-wrap-balance font-display ">
           Full Factory Automation
-        </motion.h1>
+        </h1>
         <div className="col-span-full lg:col-span-5 lg:col-start-8 flex flex-col gap-base lg:mt-[-5.4px]">
-          <motion.h2
-            initial={{ opacity: 0, y: 10, filter: "blur(3px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="xs:text-[24px] lg:text-[22px] xl:text-[24px] standard-type-body text-wrap-pretty"
-          >
+          <h2 className="xs:text-[24px] lg:text-[22px] xl:text-[24px] standard-type-body text-wrap-pretty">
             Neofactory builds and operates automated production lines for
             high-precision industries
-          </motion.h2>
+          </h2>
         </div>
       </div>
     </div>
