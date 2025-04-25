@@ -6,13 +6,6 @@ import { useEffect, useState } from "react";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "~/components/ui/select";
 import { Textarea } from "~/components/ui/textarea";
 import { getSlackClient } from "~/lib/slack.server";
 import { redis } from "~/lib/upstash.server";
@@ -37,7 +30,6 @@ export async function action({ request }: ActionFunctionArgs) {
 
   const formData = await request.formData();
   const name = String(formData.get("name"));
-  const intent = String(formData.get("intent"));
   const email = String(formData.get("email"));
   const company = String(formData.get("companyName"));
   const message = String(formData.get("message"));
@@ -62,7 +54,6 @@ export async function action({ request }: ActionFunctionArgs) {
             `*New Contact Form Submission* 🥁\n\n` +
             `*Contact Information*\n` +
             `• Name: ${name}\n` +
-            `• Intent: ${intent}\n` +
             `• Email: ${email}\n` +
             `• Company: ${company}\n\n` +
             `*Message*\n` +
@@ -129,40 +120,20 @@ export default function Contact() {
             method={isBot ? "get" : "post"}
             className="flex flex-col gap-5"
           >
+            <div className="relative flex flex-col gap-2">
+              <Label htmlFor="name">Name</Label>
+              <div className="relative flex flex-1">
+                <Input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Your name"
+                  required
+                  autoComplete="name"
+                />
+              </div>
+            </div>
             <div className="grid gap-5 lg:grid-cols-2">
-              <div className="relative flex flex-col gap-2">
-                <Label htmlFor="name">Name</Label>
-                <div className="relative flex flex-1">
-                  <Input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Your name"
-                    required
-                    autoComplete="name"
-                  />
-                </div>
-              </div>
-              <div className="relative flex flex-col gap-2">
-                <Label htmlFor="intent">What do you want to do?</Label>
-                <div className="relative flex flex-1">
-                  <input type="hidden" name="intent" value={intent} />
-                  <Select onValueChange={setIntent} defaultValue={intent}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select a verified email to display" />
-                    </SelectTrigger>
-
-                    <SelectContent>
-                      <SelectItem value="Build with us">
-                        Build with us
-                      </SelectItem>
-                      <SelectItem value="Work with us">Work with us</SelectItem>
-                      <SelectItem value="Invest in us">Invest in us</SelectItem>
-                      <SelectItem value="Other">Other</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
               <div className="relative flex flex-col gap-2">
                 <Label htmlFor="email">Work Email</Label>
                 <div className="relative flex flex-1">
