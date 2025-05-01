@@ -128,7 +128,7 @@ const Document = forwardRef<
       </head>
       <body
         suppressHydrationWarning
-        className="h-[100dvh] w-[100dvw] flex flex-col bg-background text-foreground antialiased [selection]:bg-[#fff] selection:text-[#000] dark:selection:bg-primary dark:selection:text-[#fff]"
+        className="h-[100vh] w-[100dvw] flex flex-col bg-background text-foreground antialiased [selection]:bg-[#fff] selection:text-[#000] dark:selection:bg-primary dark:selection:text-[#fff]"
       >
         <header className="max-w-section mx-auto flex select-none items-center px-6 md:px-8 lg:px-12 xl:px-[6vw] h-[var(--header-height)] fixed top-0 left-0 right-0 z-header">
           <div className="flex items-center justify-between gap-2 z-logo text-foreground w-full">

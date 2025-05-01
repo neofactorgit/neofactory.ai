@@ -26,7 +26,7 @@ function Hero() {
   return (
     <div
       ref={sectionRef}
-      className="section max-w-section mx-auto bg-background flex flex-col items-center justify-end gap-8 h-[100dvh] text-white z-logo relative overflow-hidden w-full px-section py-[80px]"
+      className="section max-w-section mx-auto bg-background flex flex-col items-center justify-end gap-8 h-[100vh] text-white z-logo relative overflow-hidden w-full px-section py-[80px]"
     >
       {videoContent}
 
@@ -68,7 +68,7 @@ const features = [
 
 function Features() {
   return (
-    <div className="section flex flex-col items-center justify-center gap-8 min-h-[100dvh] bg-foreground text-muted">
+    <div className="section flex flex-col items-center justify-center gap-8 min-h-[100vh] bg-foreground text-muted">
       <div className="flex flex-col w-full max-w-section mx-auto px-section gap-24 py-24 lg:py-12">
         <div className="w-full relative">
           <h2 className="text-base font-medium tracking-tighter top-[-22px] absolute left-0">
@@ -131,7 +131,7 @@ const plans = [
 
 function Plan() {
   return (
-    <div className="section flex flex-col items-center justify-start gap-8 min-h-[100dvh] bg-accent z-logo relative overflow-hidden py-32 px-6">
+    <div className="section flex flex-col items-center justify-start gap-8 min-h-[100vh] bg-accent z-logo relative overflow-hidden py-32 px-6">
       <DotPattern
         className={cn(
           "[mask-image:radial-gradient(30vw_circle_at_center,white,transparent)]",
@@ -242,7 +242,7 @@ function Demo() {
   return (
     <div
       ref={sectionRef}
-      className="section bg-background flex flex-col items-center justify-center lg:justify-end gap-8 h-[100dvh] text-white z-logo relative overflow-hidden w-full px-section py-[80px]"
+      className="section bg-background flex flex-col items-center justify-center lg:justify-end gap-8 h-[100vh] text-white z-logo relative overflow-hidden w-full px-section py-[80px]"
     >
       {videoContent}
     </div>
@@ -253,7 +253,7 @@ function Mission() {
   return (
     <div
       id="mission"
-      className="section flex flex-col items-center justify-center gap-8 min-h-[100dvh] bg-foreground text-muted"
+      className="section flex flex-col items-center justify-center gap-8 min-h-[100vh] bg-foreground text-muted"
     >
       <div className="flex flex-col w-full max-w-section mx-auto px-8 gap-24 py-12 px-section">
         <div className="w-full relative">
