@@ -10,17 +10,17 @@ export default function Route() {
   return (
     <>
       <Hero />
-      {/* <Features />
-      <Plan /> */}
-      <Mission />
+      {/* <Features /> */}
+      <Plan />
       <Demo />
+      <Mission />
     </>
   );
 }
 
 function Hero() {
   const { sectionRef, videoContent } = useVideoBackground({
-    videoSrc: "https://cdn.bradbarb.in/tool-build.m3u8",
+    videoSrc: "https://cdn.bradbarb.in/tool-build-2.m3u8",
   });
 
   return (
@@ -47,22 +47,21 @@ function Hero() {
 
 const features = [
   {
-    title: "Complex Requirements",
+    title: "Digitized Expertise",
     icon: "/icons/cube.svg",
     description:
-      "Our process starts with the automated ingestion and routing of complex requirements documents. Feature detection is used to create the manufacturing and quality workflow for each part.",
+      "We're using our expertise in precision machining to digitize each step of the manufacturing process to build and operate factories where AI and robotics operate at scale.",
   },
   {
-    title: "Precision Processes",
+    title: "Virtual Factories",
     icon: "/icons/diamond.svg",
     description:
-      "We've built some of the world's most advanced precision manufacturing processes using state of the art technology. But automating the machines is just the beginning.",
+      "We've built a software-controlled virtual factory that allows us to simulate and solve end-to-end operations before starting production.",
   },
   {
-    title: "Automated Operations",
+    title: "On-Site Deployments",
     icon: "/icons/triangle.svg",
-    description:
-      "Our novel automated operations layer orchestrates the coordination of thousands of subtasks to create a factory that can adapt to changing requirements in real-time.",
+    description: "We'll build our first production line in Dallas, TX in Q3.",
   },
 ];
 
@@ -104,28 +103,29 @@ function Features() {
 
 const plans = [
   {
-    title: "Simulate",
+    title: "Digitized Expertise",
+    icon: "/icons/diamond.svg",
+    shortDescription:
+      "We're using our expertise in precision machining to digitize each step of the manufacturing process to build and operate factories where AI and robotics operate at scale.",
+  },
+  {
+    title: "Virtual Factories",
     icon: "/icons/cube.svg",
     shortDescription:
-      "We've built a digital twin that allows us to simulate and solve costly problems.",
+      "We've built a software-controlled virtual factory that allows us to simulate and solve end-to-end operations before starting production.",
+  },
+  {
+    title: "On-Site Deployments",
+    icon: "/icons/triangle.svg",
+    shortDescription:
+      "We'll build our first production line in Dallas, TX in Q3. Further lines will be deployed on site at our partner's facilities.",
   },
 
   {
-    title: "Build",
-    icon: "/icons/diamond.svg",
-    shortDescription: "Our first factory will be located in Dallas, Texas.",
-  },
-  {
-    title: "Automate",
-    icon: "/icons/triangle.svg",
-    shortDescription:
-      "As robotics and AI continue to improve, we'll automated more of the stack.",
-  },
-  {
-    title: "Scale",
+    title: "Built for Scale",
     icon: "/icons/chart.svg",
     shortDescription:
-      "Automating the operations layer allows us to scale our factories horizontally at scale.",
+      "As robotics and AI continue to advance, we'll add more processes, machines, and production lines to our automated operations stack.",
   },
 ];
 
@@ -140,7 +140,7 @@ function Plan() {
       />
 
       <div className="max-w-2xl w-full flex flex-col mx-auto mt-12 gap-8 z-50">
-        <h2 className="text-xl lg:text-3xl font-display font-light tracking-tight text-center uppercase">
+        <h2 className="text-xl lg:text-2xl font-display font-light tracking-wider text-center uppercase">
           The path to hyper-scale
         </h2>
         <p className="text-sm lg:text-base font-normal text-muted-foreground text-center">
@@ -156,7 +156,7 @@ function Plan() {
             <div className="flex flex-col flex-grow items-start justify-start gap-2">
               <div className="flex items-center justify-start gap-2">
                 <img src={item.icon} alt={item.title} className="size-6" />
-                <h3 className="text-xl font-mono tracking-tight text-white">
+                <h3 className="text-xl font-medium tracking-tight text-white">
                   {item.title}
                 </h3>
               </div>
