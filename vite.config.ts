@@ -1,5 +1,4 @@
 import { vitePlugin as remix } from "@remix-run/dev";
-import { vercelPreset } from "@vercel/remix/vite";
 import path from "node:path";
 import { flatRoutes } from "remix-flat-routes";
 import { defineConfig } from "vite";
@@ -30,7 +29,6 @@ export default defineConfig({
   },
   plugins: [
     remix({
-      presets: [vercelPreset()],
       future: {
         v3_fetcherPersist: false,
         v3_lazyRouteDiscovery: false,
