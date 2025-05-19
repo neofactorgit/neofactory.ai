@@ -19,7 +19,8 @@ export default function Route() {
 }
 
 function Hero() {
-    const { sectionRef, videoContent } = useVideoBackground({    videoSrc: "/videos/tool-build-2.mp4",  });
+  const { sectionRef, videoContent } = useVideoBackground({ 
+    videoSrc: "https://cdn.bradbarb.in/tool-build-2.mp4" });
 
   return (
     <div
