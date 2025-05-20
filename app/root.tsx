@@ -17,13 +17,13 @@ import Tailwind from "~/styles/tailwind.css?url";
 import { Footer } from "./components/footer";
 import { Logo } from "./components/logo";
 import { cn } from "./lib/utils";
+import { Button } from "./components/ui/button";
 
 export const config = { runtime: "edge" };
 
 export function links() {
   return [
     { rel: "stylesheet", href: Tailwind },
-    { rel: "preconnect", href: "https://cdn.bradbarb.in" },
   ];
 }
 
@@ -133,7 +133,75 @@ const Document = forwardRef<
         <header className="max-w-section mx-auto flex select-none items-center px-6 md:px-8 lg:px-12 xl:px-[6vw] h-[var(--header-height)] fixed top-0 left-0 right-0 z-header">
           <div className="flex items-center justify-between gap-2 z-logo text-foreground w-full">
             <Logo isLightBackground={isLightBackground} />
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-4">
+              <a 
+                href="https://www.linkedin.com/company/neofactoryai/people/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-sm credit-jhey-animation px-3 py-1"
+              >
+                <span
+                  className={cn("credit-jhey", isLightBackground && "hidden")}
+                >
+                  <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12h14"></path>
+                      <path d="M12 5v14"></path>
+                    </svg>
+                  </span>
+                  <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12h14"></path>
+                      <path d="M12 5v14"></path>
+                    </svg>
+                  </span>
+                  <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12h14"></path>
+                      <path d="M12 5v14"></path>
+                    </svg>
+                  </span>
+                  <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12h14"></path>
+                      <path d="M12 5v14"></path>
+                    </svg>
+                  </span>
+                </span>
+                <span>Team</span>
+              </a>
               <Link
                 to="/contact"
                 className="bg-primary text-sm credit-jhey-animation"

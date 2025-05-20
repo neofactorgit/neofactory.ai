@@ -19,8 +19,9 @@ export default function Route() {
 }
 
 function Hero() {
-  const { sectionRef, videoContent } = useVideoBackground({ 
-    videoSrc: "https://cdn.bradbarb.in/tool-build-2.mp4" });
+  const { sectionRef, videoContent } = useVideoBackground({
+    videoSrc: "/videos/tool-build/tool-build.m3u8"
+  });
 
   return (
     <div
@@ -235,7 +236,7 @@ function Plan() {
 
 function Demo() {
   const { sectionRef, videoContent } = useVideoBackground({
-    videoSrc: "https://cdn.bradbarb.in/factory-floor.m3u8",
+    videoSrc: "/videos/factory-floor/factory-floor.m3u8",
   });
 
   return (
@@ -285,9 +286,6 @@ function Mission() {
             <div className="flex gap-4">
               <Button size="lg" asChild>
                 <Link to="/contact">Join Us</Link>
-              </Button>
-              <Button size="lg" asChild variant="outline">
-                <a href="https://www.linkedin.com/company/neofactoryai/people/" target="_blank" rel="noopener noreferrer">TEAM</a>
               </Button>
             </div>
           </div>

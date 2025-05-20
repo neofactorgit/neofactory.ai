@@ -1,0 +1,17 @@
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-TARGETDURATION:16
+#EXT-X-MEDIA-SEQUENCE:0
+#EXTINF:10.176833,
+factory-floor0.ts
+#EXTINF:16.216200,
+factory-floor1.ts
+#EXTINF:10.477133,
+factory-floor2.ts
+#EXTINF:7.741067,
+factory-floor3.ts
+#EXTINF:6.773433,
+factory-floor4.ts
+#EXTINF:3.937267,
+factory-floor5.ts
+#EXT-X-ENDLIST
