@@ -1,4 +1,4 @@
-import { useFetcher } from "@remix-run/react";
+import { useFetcher, useLoaderData } from "@remix-run/react";
 import { Ratelimit } from "@upstash/ratelimit";
 import type { ActionFunctionArgs } from "@vercel/remix";
 import { json } from "@vercel/remix";
@@ -10,7 +10,24 @@ import { Label } from "~/components/ui/label";
 import { Textarea } from "~/components/ui/textarea";
 import { getSlackClient } from "~/lib/slack.server";
 import { redis } from "~/lib/upstash.server";
+import { signTs, verifyTs } from "~/utils/formSig.server";
 export const config = { runtime: "nodejs" };
+
+const FORM_SALT = "contact-v1";
+const VALID_SALTS = new Set([FORM_SALT]);
+const MIN_FILL_MS = 3000;
+const MAX_AGE_MS = 30 * 60 * 1000;
+
+export async function loader() {
+  const ts = Date.now().toString();
+  const sig = signTs(ts, FORM_SALT);
+
+  return json({
+    ts,
+    sig,
+    salt: FORM_SALT,
+  });
+}
 
 const ratelimit = new Ratelimit({
   redis,
@@ -24,6 +41,29 @@ export async function action({ request }: ActionFunctionArgs) {
   }
 
   const formData = await request.formData();
+
+  const ts = (formData.get("ts") || "").toString();
+  const tsSig = (formData.get("ts_sig") || "").toString();
+  const tsSalt = (formData.get("ts_salt") || "").toString();
+
+  let tsOk = false;
+  if (ts && tsSig && tsSalt && VALID_SALTS.has(tsSalt)) {
+    tsOk = verifyTs(ts, tsSalt, tsSig);
+  }
+
+  if (!tsOk) {
+    return json({ ok: true });
+  }
+
+  const tsNumber = Number.parseInt(ts, 10);
+  if (!Number.isFinite(tsNumber) || !Number.isSafeInteger(tsNumber) || tsNumber <= 0) {
+    return json({ ok: true });
+  }
+
+  const age = Date.now() - tsNumber;
+  if (!(age >= MIN_FILL_MS && age <= MAX_AGE_MS)) {
+    return json({ ok: true });
+  }
 
   const honeypots = ["website", "phone", "fax", "title"] as const;
   for (const field of honeypots) {
@@ -99,6 +139,7 @@ export async function action({ request }: ActionFunctionArgs) {
 
 export default function Contact() {
   const fetcher = useFetcher<typeof action>();
+  const { ts, sig, salt } = useLoaderData<typeof loader>();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isBot, setIsBot] = useState(false);
   useEffect(() => {
@@ -150,6 +191,9 @@ export default function Contact() {
             method={isBot ? "get" : "post"}
             className="flex flex-col gap-5"
           >
+            <input type="hidden" name="ts" value={ts} />
+            <input type="hidden" name="ts_sig" value={sig} />
+            <input type="hidden" name="ts_salt" value={salt} />
             <div className="visually-hidden" aria-hidden="true">
               <label>
                 Website
