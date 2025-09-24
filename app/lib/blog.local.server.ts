@@ -1,7 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import { processMarkdown } from "./md.server";
-import { authors, Metadata } from "./types";
+import { authors } from "./types";
+import type { Metadata } from "./types";
 
 function parseFrontmatter(fileContent: string) {
   const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;

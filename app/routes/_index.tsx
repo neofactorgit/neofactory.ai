@@ -10,7 +10,6 @@ export default function Route() {
   return (
     <>
       <Hero />
-      {/* <Features /> */}
       <Plan />
       <Demo />
       <Mission />
@@ -38,62 +37,6 @@ function Hero() {
           <h2 className="xs:text-[26px] lg:text-[28px] xl:text-[30px] standard-type-body text-muted-foreground text-wrap-pretty">
             The orchestration layer for high-mix production lines in critical industries
           </h2>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-const features = [
-  {
-    title: "Digitized Expertise",
-    icon: "/icons/cube.svg",
-    description:
-      "We're using our expertise in precision machining to digitize each step of the manufacturing process to build and operate factories where AI and robotics operate at scale.",
-  },
-  {
-    title: "Virtual Factories",
-    icon: "/icons/diamond.svg",
-    description:
-      "We've built a software-controlled virtual factory that allows us to simulate and solve end-to-end operations before starting production.",
-  },
-  {
-    title: "On-Site Deployments",
-    icon: "/icons/triangle.svg",
-    description: "We'll build our first production line in Dallas, TX in Q3.",
-  },
-];
-
-function Features() {
-  return (
-    <div className="section flex flex-col items-center justify-center gap-8 min-h-[100vh] bg-foreground text-muted">
-      <div className="flex flex-col w-full max-w-section mx-auto px-section gap-24 py-24 lg:py-12">
-        <div className="w-full relative">
-          <h2 className="text-base font-medium tracking-tighter top-[-22px] absolute left-0">
-            Bridging the gap between people, AI and robotics
-          </h2>
-          <div className="top-[3px] absolute left-0 w-full h-px bg-muted" />
-          <div className="top-[2px] absolute left-0 w-[334px] h-[3px] bg-muted" />
-        </div>
-        <div className="grid w-full grid-cols-1 lg:grid-cols-3 gap-12">
-          {features.map((feature) => (
-            <div
-              key={feature.title}
-              className="bg-muted rounded-sm p-6 flex flex-col gap-4"
-            >
-              <img src={feature.icon} alt={feature.title} className="size-16" />
-              <h3 className="text-xl font-medium tracking-tighter text-white">
-                {feature.title}
-              </h3>
-              <p className="text-base font-light tracking-tight text-muted-foreground text-balance">
-                {feature.description}
-              </p>
-            </div>
-          ))}
-        </div>
-        <div className="w-full relative">
-          <div className="top-[3px] absolute left-0 w-full h-px bg-muted" />
-          <div className="top-[2px] absolute right-0 w-[39%] h-[3px] bg-muted" />
         </div>
       </div>
     </div>
