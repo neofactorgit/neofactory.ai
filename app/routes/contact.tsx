@@ -1,6 +1,7 @@
 import { useFetcher } from "@remix-run/react";
 import { Ratelimit } from "@upstash/ratelimit";
-import { ActionFunctionArgs, json } from "@vercel/remix";
+import type { ActionFunctionArgs } from "@vercel/remix";
+import { json } from "@vercel/remix";
 import { Check } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "~/components/ui/button";
@@ -18,6 +19,20 @@ const ratelimit = new Ratelimit({
 });
 
 export async function action({ request }: ActionFunctionArgs) {
+  if (request.method.toUpperCase() !== "POST") {
+    return json({ ok: true });
+  }
+
+  const formData = await request.formData();
+
+  const honeypots = ["website", "phone", "fax", "title"] as const;
+  for (const field of honeypots) {
+    const value = formData.get(field);
+    if (typeof value === "string" && value.trim().length > 0) {
+      return json({ ok: true });
+    }
+  }
+
   const ip = request.headers.get("x-forwarded-for") ?? "127.0.0.1";
   const { success } = await ratelimit.limit(ip);
 
@@ -28,11 +43,27 @@ export async function action({ request }: ActionFunctionArgs) {
     );
   }
 
-  const formData = await request.formData();
-  const name = String(formData.get("name"));
-  const email = String(formData.get("email"));
-  const company = String(formData.get("companyName"));
-  const message = String(formData.get("message"));
+  const nameEntry = formData.get("name");
+  const emailEntry = formData.get("email");
+  const companyEntry = formData.get("companyName");
+  const messageEntry = formData.get("message");
+
+  if (
+    typeof nameEntry !== "string" ||
+    typeof emailEntry !== "string" ||
+    typeof companyEntry !== "string" ||
+    typeof messageEntry !== "string"
+  ) {
+    return json(
+      { success: false, message: "Invalid form submission" },
+      { status: 400 }
+    );
+  }
+
+  const name = nameEntry.trim();
+  const email = emailEntry.trim();
+  const company = companyEntry.trim();
+  const message = messageEntry.trim();
 
   if (!name || !email || !company || !message) {
     return json(
@@ -70,7 +101,6 @@ export default function Contact() {
   const fetcher = useFetcher<typeof action>();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isBot, setIsBot] = useState(false);
-  const [intent, setIntent] = useState("Build with us");
   useEffect(() => {
     if (fetcher.data?.success) {
       setIsSubmitted(true);
@@ -120,6 +150,44 @@ export default function Contact() {
             method={isBot ? "get" : "post"}
             className="flex flex-col gap-5"
           >
+            <div className="visually-hidden" aria-hidden="true">
+              <label>
+                Website
+                <input
+                  name="website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </label>
+              <label>
+                Phone
+                <input
+                  name="phone"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </label>
+              <label>
+                Fax
+                <input
+                  name="fax"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </label>
+              <label>
+                Title
+                <input
+                  name="title"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </label>
+            </div>
             <div className="relative flex flex-col gap-2">
               <Label htmlFor="name">Name</Label>
               <div className="relative flex flex-1">

@@ -1,5 +1,5 @@
 import { LRUCache } from "lru-cache";
-import { BlogPost } from "./types";
+import type { BlogPost } from "./types";
 
 const postsCache = new LRUCache<string, BlogPost>({
   max: 1000,

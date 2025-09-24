@@ -12,18 +12,20 @@ import {
 import { Analytics } from "@vercel/analytics/remix";
 import type { LoaderFunctionArgs, MetaFunction } from "@vercel/remix";
 import { json } from "@vercel/remix";
-import { forwardRef, ReactNode, useEffect, useRef, useState } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
+import type { ReactNode } from "react";
 import Tailwind from "~/styles/tailwind.css?url";
+import VisuallyHidden from "~/styles/visually-hidden.css?url";
 import { Footer } from "./components/footer";
 import { Logo } from "./components/logo";
 import { cn } from "./lib/utils";
-import { Button } from "./components/ui/button";
 
 export const config = { runtime: "edge" };
 
 export function links() {
   return [
     { rel: "stylesheet", href: Tailwind },
+    { rel: "stylesheet", href: VisuallyHidden },
   ];
 }
 

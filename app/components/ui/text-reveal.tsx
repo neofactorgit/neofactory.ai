@@ -1,7 +1,9 @@
 "use client";
 
-import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
-import { FC, ReactNode, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import type { MotionValue } from "framer-motion";
+import { useRef } from "react";
+import type { ReactNode } from "react";
 import { useIsMobile } from "~/hooks/useIsMobile";
 
 import { cn } from "~/lib/utils";
@@ -11,10 +13,7 @@ interface TextRevealByWordProps {
   className?: string;
 }
 
-export const TextRevealByWord: FC<TextRevealByWordProps> = ({
-  text,
-  className,
-}) => {
+export function TextRevealByWord({ text, className }: TextRevealByWordProps) {
   const isMobile = useIsMobile();
   const targetRef = useRef<HTMLDivElement | null>(null);
 
@@ -114,7 +113,7 @@ export const TextRevealByWord: FC<TextRevealByWordProps> = ({
       </div>
     </div>
   );
-};
+}
 
 interface WordProps {
   children: ReactNode;
@@ -123,7 +122,7 @@ interface WordProps {
   isBold?: boolean;
 }
 
-const Word: FC<WordProps> = ({ children, progress, range, isBold = false }) => {
+function Word({ children, progress, range, isBold = false }: WordProps) {
   const opacity = useTransform(progress, range, [0, 1]);
   return (
     <span className="xl:lg-3 relative mx-0.5 lg:mx-1">
@@ -144,6 +143,6 @@ const Word: FC<WordProps> = ({ children, progress, range, isBold = false }) => {
       </motion.span>
     </span>
   );
-};
+}
 
 export default TextRevealByWord;
