@@ -2,6 +2,7 @@
   "name": "www",
   "type": "module",
   "dependencies": {
+    "@emotion/is-prop-valid": "^1.4.0",
     "@radix-ui/react-accordion": "^1.2.2",
     "@radix-ui/react-dialog": "^1.1.10",
     "@radix-ui/react-label": "^2.1.1",
