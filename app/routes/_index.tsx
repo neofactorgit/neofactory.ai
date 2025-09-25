@@ -93,6 +93,7 @@ function Plan() {
         {plans.map((item, index) => (
           <div
             key={item.title}
+            data-testid="plan-card"
             className="group w-full bg-accent p-6 border border-border/50 hover:border-muted-foreground flex gap-6 justify-between items-center backdrop-filter backdrop-blur-xl bg-opacity-5 shadow-xl relative text-muted-foreground credit-jhey-animation"
           >
             <div className="flex flex-col flex-grow items-start justify-start gap-2">

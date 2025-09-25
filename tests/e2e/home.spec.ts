@@ -1,0 +1,42 @@
+import { test, expect } from "@playwright/test";
+
+test.describe("marketing site smoke tests", () => {
+  test("home page renders hero headline", async ({ page }) => {
+    await page.goto("/", { waitUntil: "commit" });
+    await expect(
+      page.getByRole("heading", { name: "One-person factory" })
+    ).toBeVisible();
+  });
+
+  test("primary navigation routes to contact page", async ({ page }) => {
+    await page.goto("/", { waitUntil: "commit" });
+    await page
+      .getByRole("banner")
+      .getByRole("link", { name: "Join Us" })
+      .click({ force: true });
+    await expect(page).toHaveURL(/\/contact$/);
+    await expect(
+      page.getByRole("heading", { name: "Build with us" })
+    ).toBeVisible();
+  });
+
+  test("plan section lists the four scaling milestones", async ({ page }) => {
+    await page.goto("/", { waitUntil: "commit" });
+    const planHeading = page.getByRole("heading", {
+      name: "The path to hyper-scale",
+    });
+    await planHeading.waitFor();
+    await planHeading.evaluate((node) =>
+      node.scrollIntoView({ behavior: "instant", block: "center" })
+    );
+    await expect(planHeading).toBeVisible();
+
+    const planCards = page.locator('[data-testid="plan-card"]');
+    await expect(planCards).toHaveCount(4);
+    await expect(
+      planCards
+        .first()
+        .getByRole("heading", { level: 3, name: "Digitized Expertise" })
+    ).toBeVisible();
+  });
+});
