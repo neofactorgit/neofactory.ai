@@ -15,7 +15,7 @@
     "paths": {
       "~/*": ["./app/*"]
     },
-
+    "types": ["vitest/globals"],
     "noEmit": true,
     "isolatedModules": true,
     "skipLibCheck": true,
