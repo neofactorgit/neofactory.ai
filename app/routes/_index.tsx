@@ -90,7 +90,7 @@ function Plan() {
       />
 
       <div className="max-w-3xl w-full flex flex-col mx-auto gap-8 z-50">
-        <h2 className="mx-auto max-w-[62ch] text-[1.08rem] lg:text-[1.3rem] font-display font-light tracking-wide text-center uppercase leading-snug text-balance text-pretty">
+        <h2 className="mx-auto max-w-[62ch] text-[1.3rem] md:text-[1.45rem] lg:text-[1.56rem] font-display font-light tracking-wide text-center uppercase leading-snug text-balance text-pretty">
           <span className="block">
             A manufacturing model must represent latent physical state and process dynamics,
           </span>
@@ -121,7 +121,7 @@ function Plan() {
               </div>
 
               <div className="flex flex-col items-start justify-start gap-2">
-                <h3 className="text-[1.8rem] font-medium tracking-tight text-white">
+                <h3 className="text-[1.25rem] md:text-[1.35rem] lg:text-[1.45rem] font-medium tracking-tight text-white">
                   {item.title}
                 </h3>
                 {item.bulletPoints?.length ? (
