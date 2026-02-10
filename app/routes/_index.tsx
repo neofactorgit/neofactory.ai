@@ -89,100 +89,57 @@ function Plan() {
         )}
       />
 
-      <div className="max-w-2xl w-full flex flex-col mx-auto mt-12 gap-8 z-50">
+      <div className="max-w-3xl w-full flex flex-col mx-auto mt-12 gap-10 z-50">
         <h2 className="text-[0.9rem] lg:text-[1.08rem] font-display font-light tracking-wider text-center uppercase">
           A manufacturing model must represent latent physical state and process dynamics, not just imitate what an expert typed or clicked.
         </h2>
-        {plans.map((item, index) => (
+        <ol className="relative w-full">
           <div
-            key={item.title}
-            data-testid="plan-card"
-            className="group w-full bg-accent p-6 border border-border/50 hover:border-muted-foreground flex gap-6 justify-between items-center backdrop-filter backdrop-blur-xl bg-opacity-5 shadow-xl relative text-muted-foreground credit-jhey-animation"
-          >
-            <div className="flex flex-col flex-grow items-start justify-start gap-2">
-              <div className="flex items-center justify-start gap-2">
-                <img src={item.icon} alt={item.title} className="size-6" />
+            aria-hidden="true"
+            className="absolute left-5 top-6 bottom-6 w-px bg-border/40"
+          />
+          {plans.map((item, index) => (
+            <li
+              key={item.title}
+              data-testid="plan-card"
+              className="group grid grid-cols-[40px_1fr_auto] gap-6 py-8"
+            >
+              <div className="relative flex justify-center">
+                <div className="size-10 rounded-full border border-border/50 bg-background/5 backdrop-blur-sm grid place-items-center">
+                  <img
+                    src={item.icon}
+                    alt=""
+                    aria-hidden="true"
+                    className="size-5 opacity-90"
+                  />
+                </div>
+              </div>
+
+              <div className="flex flex-col items-start justify-start gap-2">
                 <h3 className="text-xl font-medium tracking-tight text-white">
                   {item.title}
                 </h3>
+                {item.bulletPoints?.length ? (
+                  <ul className="list-disc pl-5 text-sm font-normal tracking-tight text-muted-foreground space-y-1">
+                    {item.bulletPoints.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-sm font-normal tracking-tight text-muted-foreground">
+                    {item.shortDescription}
+                  </p>
+                )}
               </div>
-              {item.bulletPoints?.length ? (
-                <ul className="list-disc pl-5 text-sm font-normal tracking-tight text-muted-foreground space-y-1">
-                  {item.bulletPoints.map((point) => (
-                    <li key={point}>{point}</li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="text-sm font-normal tracking-tight text-muted-foreground">
-                  {item.shortDescription}
-                </p>
-              )}
-            </div>
-            <div className="flex flex-col items-end justify-center gap-2">
-              <span className="text-xl font-mono font-medium text-white/30 group-hover:text-white">
-                0{index + 1}
-              </span>
-            </div>
-            <span className="credit-jhey">
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M5 12h14"></path>
-                  <path d="M12 5v14"></path>
-                </svg>
-              </span>
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M5 12h14"></path>
-                  <path d="M12 5v14"></path>
-                </svg>
-              </span>
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M5 12h14"></path>
-                  <path d="M12 5v14"></path>
-                </svg>
-              </span>
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M5 12h14"></path>
-                  <path d="M12 5v14"></path>
-                </svg>
-              </span>
-            </span>
-          </div>
-        ))}
+
+              <div className="pt-1 flex items-start justify-end">
+                <span className="text-xl font-mono font-medium text-white/30 group-hover:text-white transition-colors">
+                  0{index + 1}
+                </span>
+              </div>
+            </li>
+          ))}
+        </ol>
       </div>
     </div>
   );
