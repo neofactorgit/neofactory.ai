@@ -45,29 +45,34 @@ function Hero() {
 
 const plans = [
   {
-    title: "Digitized Expertise",
+    title: "Instrumented, closed system",
     icon: "/icons/diamond.svg",
-    shortDescription:
-      "We're using our expertise in precision machining to digitize each step of the manufacturing process to build and operate factories where AI and robotics operate at scale.",
+    shortDescription: "",
+    bulletPoints: [
+      "Manufacturing has complete specifications and hard constraints.",
+      "Processes can be instrumented for rich, objective data collection.",
+      "The environment is closed-loop and finite: every action is testable against ground truth.",
+    ],
   },
   {
-    title: "Virtual Factories",
+    title: "Expertise must be modeled, not observed",
     icon: "/icons/cube.svg",
-    shortDescription:
-      "We've built a software-controlled virtual factory that allows us to simulate and solve end-to-end operations before starting production.",
+    shortDescription: "",
+    bulletPoints: [
+      "Manufacturing processes are dominated by latent variables that sensors don't directly expose.",
+      "Experts function as adaptive controllers, continuously inferring hidden state and adjusting actions under uncertainty.",
+      "What appears as 'heuristics' is actually long-horizon belief-state tracking shaped by sparse, delayed physical feedback.",
+    ],
   },
   {
-    title: "On-Site Deployments",
+    title: "High-stakes validation",
     icon: "/icons/triangle.svg",
-    shortDescription:
-      "We'll build our first production line in Dallas, TX in Q3. Further lines will be deployed on site at our partner's facilities.",
-  },
-
-  {
-    title: "Built for Scale",
-    icon: "/icons/chart.svg",
-    shortDescription:
-      "As robotics and AI continue to advance, we'll add more processes, machines, and production lines to our automated operations stack.",
+    shortDescription: "",
+    bulletPoints: [
+      "Manufacturing does not tolerate incorrect internal state.",
+      "Incorrect beliefs surface as measurable defects.",
+      "Only policies with accurate latent-state representations survive.",
+    ],
   },
 ];
 
@@ -83,13 +88,8 @@ function Plan() {
 
       <div className="max-w-2xl w-full flex flex-col mx-auto mt-12 gap-8 z-50">
         <h2 className="text-[0.9rem] lg:text-[1.08rem] font-display font-light tracking-wider text-center uppercase">
-          A manufacturing model must represent latent physical state and process dynamics, not just imitate what an expert typed or clicked.
+          Manufacturing is a uniquely good training ground for physical intelligence. Manufacturing is rare among real-world domains in that it is complex, physical, and yet fully specified.
         </h2>
-        <p className="text-sm lg:text-base font-normal text-muted-foreground text-center">
-          Scaling high-mix low-volume manufacturing requires a new approach to
-          automation. It's not enough to automate the machines. A new layer is
-          needed to automate operations.
-        </p>
         {plans.map((item, index) => (
           <div
             key={item.title}
@@ -103,9 +103,17 @@ function Plan() {
                   {item.title}
                 </h3>
               </div>
-              <p className="text-sm font-normal tracking-tight text-muted-foreground">
-                {item.shortDescription}
-              </p>
+              {item.bulletPoints?.length ? (
+                <ul className="list-disc pl-5 text-sm font-normal tracking-tight text-muted-foreground space-y-1">
+                  {item.bulletPoints.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-sm font-normal tracking-tight text-muted-foreground">
+                  {item.shortDescription}
+                </p>
+              )}
             </div>
             <div className="flex flex-col items-end justify-center gap-2">
               <span className="text-xl font-mono font-medium text-white/30 group-hover:text-white">
