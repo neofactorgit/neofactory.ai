@@ -90,13 +90,9 @@ function Plan() {
       />
 
       <div className="max-w-2xl w-full flex flex-col mx-auto mt-12 gap-8 z-50">
-        <h2 className="text-xl lg:text-2xl font-display font-light tracking-wider text-center uppercase">
-          The path to hyper-scale
+        <h2 className="text-[0.9rem] lg:text-[1.08rem] font-display font-light tracking-wider text-center uppercase">
+          A manufacturing model must represent latent physical state and process dynamics, not just imitate what an expert typed or clicked.
         </h2>
-        <p className="text-sm lg:text-base font-normal text-muted-foreground text-center">
-          A manufacturing model must represent latent physical state and process
-          dynamics, not just imitate what an expert typed or clicked.
-        </p>
         {plans.map((item, index) => (
           <div
             key={item.title}
@@ -218,28 +214,21 @@ function Mission() {
           <div className="top-[3px] absolute left-0 w-full h-px bg-accent" />
           <div className="top-[2px] absolute left-0 w-[260px] h-[3px] bg-accent" />
           <h2 className="text-base font-medium tracking-tighter top-[-22px] absolute left-0">
-            Our Mission
+             
           </h2>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="py-20">
             <h2 className="text-3xl lg:text-5xl font-display font-bold tracking-tight text-left uppercase">
-              American abundance through automation
+              {" "}
             </h2>
           </div>
           <div className="flex flex-col w-full mx-auto gap-8 ">
             <p className="text-xl text-balance tracking-tight">
-              We believe that in order to restore American manufacturing
-              dominance, a new approach is needed. Instead of reducing costs
-              with lower wages and government subsidies, we envision a future
-              inspired by our past&ndash; where abundance is created through
-              American ingenuity and automation.
+              {" "}
             </p>
             <p className="text-xl text-balance tracking-tight">
-              AI and robotics are changing the underlying economics of
-              manufacturing. We have a chance to reinvent the American
-              production base, not by longing for the past, but by building the
-              future.
+              {" "}
             </p>
             <div className="flex gap-4">
               <Button size="lg" asChild>
