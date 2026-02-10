@@ -81,7 +81,7 @@ const plans = [
 
 function Plan() {
   return (
-    <div className="section flex flex-col items-center justify-start gap-8 min-h-[100vh] bg-accent z-logo relative overflow-hidden py-32 px-6">
+    <div className="section flex flex-col items-center justify-start gap-8 min-h-[100vh] bg-accent z-logo relative overflow-hidden pt-24 pb-24 px-6">
       <DotPattern
         className={cn(
           "[mask-image:radial-gradient(30vw_circle_at_center,white,transparent)]",
@@ -89,7 +89,7 @@ function Plan() {
         )}
       />
 
-      <div className="max-w-3xl w-full flex flex-col mx-auto mt-12 gap-10 z-50">
+      <div className="max-w-3xl w-full flex flex-col mx-auto gap-8 z-50">
         <h2 className="mx-auto max-w-[62ch] text-[1.08rem] lg:text-[1.3rem] font-display font-light tracking-wide text-center uppercase leading-snug text-balance text-pretty">
           <span className="block">
             A manufacturing model must represent latent physical state and process dynamics,
@@ -101,13 +101,13 @@ function Plan() {
         <ol className="relative w-full">
           <div
             aria-hidden="true"
-            className="absolute left-5 top-6 bottom-6 w-px bg-border/40"
+            className="absolute left-5 top-4 bottom-4 w-px bg-border/40"
           />
           {plans.map((item, index) => (
             <li
               key={item.title}
               data-testid="plan-card"
-              className="group grid grid-cols-[40px_1fr_3ch] gap-6 py-8"
+              className="group grid grid-cols-[40px_1fr_3ch] gap-6 py-6"
             >
               <div className="relative flex justify-center">
                 <div className="size-10 rounded-full border border-border/50 bg-background/5 backdrop-blur-sm grid place-items-center">
