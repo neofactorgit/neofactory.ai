@@ -31,11 +31,11 @@ function Hero() {
 
       <div className="max-w-section !my-0 grid-layout z-20 relative gap-4">
         <div className="col-span-full lg:col-span-10">
-          <p className="max-w-4xl leading-snug text-wrap-pretty">
-            <span className="text-[18px] xs:text-[22px] md:text-[25px] lg:text-[29px] xl:text-[33px] leading-[1.12] font-display font-semibold tracking-tight text-wrap-balance bg-gradient-to-b from-foreground to-muted-foreground bg-clip-text text-transparent">
+          <p className="max-w-4xl leading-snug text-pretty">
+            <span className="text-[18px] xs:text-[22px] md:text-[25px] lg:text-[29px] xl:text-[33px] leading-[1.12] font-display font-semibold tracking-tight text-balance bg-gradient-to-b from-foreground to-muted-foreground bg-clip-text text-transparent">
               Manufacturing is a uniquely good training ground for physical intelligence.{" "}
             </span>
-            <span className="text-[20px] xs:text-[22px] md:text-[24px] lg:text-[28px] leading-[1.12] text-muted-foreground">
+            <span className="text-[20px] xs:text-[22px] md:text-[24px] lg:text-[28px] leading-[1.12] text-muted-foreground text-balance">
               Manufacturing is rare among real-world domains in that it is complex, physical,
               and yet fully specified.
             </span>
@@ -90,8 +90,13 @@ function Plan() {
       />
 
       <div className="max-w-3xl w-full flex flex-col mx-auto mt-12 gap-10 z-50">
-        <h2 className="text-[0.9rem] lg:text-[1.08rem] font-display font-light tracking-wider text-center uppercase">
-          A manufacturing model must represent latent physical state and process dynamics, not just imitate what an expert typed or clicked.
+        <h2 className="mx-auto max-w-[62ch] text-[0.9rem] lg:text-[1.08rem] font-display font-light tracking-wide text-center uppercase leading-snug text-balance text-pretty">
+          <span className="block">
+            A manufacturing model must represent latent physical state and process dynamics,
+          </span>
+          <span className="block">
+            not just imitate what an expert typed or clicked.
+          </span>
         </h2>
         <ol className="relative w-full">
           <div
@@ -102,7 +107,7 @@ function Plan() {
             <li
               key={item.title}
               data-testid="plan-card"
-              className="group grid grid-cols-[40px_1fr_auto] gap-6 py-8"
+              className="group grid grid-cols-[40px_1fr_3ch] gap-6 py-8"
             >
               <div className="relative flex justify-center">
                 <div className="size-10 rounded-full border border-border/50 bg-background/5 backdrop-blur-sm grid place-items-center">
