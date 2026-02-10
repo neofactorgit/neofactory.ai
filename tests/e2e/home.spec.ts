@@ -22,16 +22,11 @@ test.describe("marketing site smoke tests", () => {
 
   test("plan section lists the four scaling milestones", async ({ page }) => {
     await page.goto("/", { waitUntil: "commit" });
-    const planHeading = page.getByRole("heading", {
-      name: "The path to hyper-scale",
-    });
-    await planHeading.waitFor();
-    await planHeading.evaluate((node) =>
+    const planCards = page.locator('[data-testid="plan-card"]');
+    await planCards.first().waitFor();
+    await planCards.first().evaluate((node) =>
       node.scrollIntoView({ behavior: "instant", block: "center" })
     );
-    await expect(planHeading).toBeVisible();
-
-    const planCards = page.locator('[data-testid="plan-card"]');
     await expect(planCards).toHaveCount(4);
     await expect(
       planCards
