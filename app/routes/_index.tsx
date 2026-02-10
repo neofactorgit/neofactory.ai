@@ -121,17 +121,17 @@ function Plan() {
               </div>
 
               <div className="flex flex-col items-start justify-start gap-2">
-                <h3 className="text-xl font-medium tracking-tight text-white">
+                <h3 className="text-2xl font-medium tracking-tight text-white">
                   {item.title}
                 </h3>
                 {item.bulletPoints?.length ? (
-                  <ul className="list-disc pl-5 text-sm font-normal tracking-tight text-muted-foreground space-y-1">
+                  <ul className="list-disc pl-5 text-[0.98rem] md:text-base font-normal tracking-tight text-muted-foreground leading-relaxed space-y-2">
                     {item.bulletPoints.map((point) => (
                       <li key={point}>{point}</li>
                     ))}
                   </ul>
                 ) : (
-                  <p className="text-sm font-normal tracking-tight text-muted-foreground">
+                  <p className="text-[0.98rem] md:text-base font-normal tracking-tight text-muted-foreground leading-relaxed">
                     {item.shortDescription}
                   </p>
                 )}
