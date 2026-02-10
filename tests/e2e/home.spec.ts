@@ -4,7 +4,9 @@ test.describe("marketing site smoke tests", () => {
   test("home page renders hero headline", async ({ page }) => {
     await page.goto("/", { waitUntil: "commit" });
     await expect(
-      page.getByRole("heading", { name: "One-person factory" })
+      page.getByText(
+        "Manufacturing is a uniquely good training ground for physical intelligence."
+      )
     ).toBeVisible();
   });
 

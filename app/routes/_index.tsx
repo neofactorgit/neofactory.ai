@@ -30,13 +30,16 @@ function Hero() {
       {videoContent}
 
       <div className="max-w-section !my-0 grid-layout z-20 relative gap-4">
-        <h1 className="select-none max-lg:mb-[20px] col-span-full lg:col-span-7 uppercase text-[32px] xs:text-[42px] md:text-[40px] lg:text-[46px] xl:text-[67px] 2xl:text-[80px] leading-heading font-bold text-wrap-balance font-display bg-gradient-to-b from-foreground to-muted-foreground bg-clip-text text-transparent">
-          One-person factory
-        </h1>
-        <div className="col-span-full lg:col-span-5 lg:col-start-8 flex flex-col gap-base lg:mt-[-5.4px]">
-          <h2 className="xs:text-[26px] lg:text-[28px] xl:text-[30px] standard-type-body text-muted-foreground text-wrap-pretty">
-            The orchestration layer for high-mix production lines in critical industries
-          </h2>
+        <div className="col-span-full lg:col-span-10">
+          <p className="max-w-4xl leading-snug text-wrap-pretty">
+            <span className="text-[18px] xs:text-[22px] md:text-[25px] lg:text-[29px] xl:text-[33px] leading-[1.12] font-display font-semibold tracking-tight text-wrap-balance bg-gradient-to-b from-foreground to-muted-foreground bg-clip-text text-transparent">
+              Manufacturing is a uniquely good training ground for physical intelligence.{" "}
+            </span>
+            <span className="text-[20px] xs:text-[22px] md:text-[24px] lg:text-[28px] leading-[1.12] text-muted-foreground">
+              Manufacturing is rare among real-world domains in that it is complex, physical,
+              and yet fully specified.
+            </span>
+          </p>
         </div>
       </div>
     </div>
@@ -88,7 +91,7 @@ function Plan() {
 
       <div className="max-w-2xl w-full flex flex-col mx-auto mt-12 gap-8 z-50">
         <h2 className="text-[0.9rem] lg:text-[1.08rem] font-display font-light tracking-wider text-center uppercase">
-          Manufacturing is a uniquely good training ground for physical intelligence. Manufacturing is rare among real-world domains in that it is complex, physical, and yet fully specified.
+          A manufacturing model must represent latent physical state and process dynamics, not just imitate what an expert typed or clicked.
         </h2>
         {plans.map((item, index) => (
           <div
@@ -211,7 +214,7 @@ function Mission() {
           <div className="top-[3px] absolute left-0 w-full h-px bg-accent" />
           <div className="top-[2px] absolute left-0 w-[260px] h-[3px] bg-accent" />
           <h2 className="text-base font-medium tracking-tighter top-[-22px] absolute left-0">
-            Our Mission
+             
           </h2>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
