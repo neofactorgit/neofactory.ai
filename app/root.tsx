@@ -37,7 +37,10 @@ export async function loader({ request, params }: LoaderFunctionArgs) {
 }
 
 export const meta: MetaFunction = ({ data }) => {
-  const { siteUrl } = data as { siteUrl: string };
+  const siteUrl =
+    data && typeof data === "object" && "siteUrl" in data
+      ? (data as { siteUrl?: string }).siteUrl ?? null
+      : null;
 
   if (!siteUrl) {
     return [
