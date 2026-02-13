@@ -5,6 +5,8 @@ import { flatRoutes } from "remix-flat-routes";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
+const isVitest = process.env.VITEST === "true";
+
 export default defineConfig({
   build: {
     sourcemap: false,
@@ -29,26 +31,49 @@ export default defineConfig({
     port: 3003,
   },
   plugins: [
-    remix({
-      presets: [vercelPreset()],
-      future: {
-        v3_fetcherPersist: false,
-        v3_lazyRouteDiscovery: false,
-        v3_relativeSplatPath: false,
-        v3_routeConfig: false,
-        v3_singleFetch: false,
-        v3_throwAbortReason: false,
-      },
-      ignoredRouteFiles: ["**/.*"],
-      serverModuleFormat: "esm",
-      routes: async (defineRoutes) => {
-        return flatRoutes("routes", defineRoutes, {
-          // eslint-disable-next-line no-undef
-          appDir: path.resolve(__dirname, "app"),
-        });
-      },
-    }),
+    !isVitest &&
+      remix({
+        presets: [vercelPreset()],
+        future: {
+          v3_fetcherPersist: false,
+          v3_lazyRouteDiscovery: false,
+          v3_relativeSplatPath: false,
+          v3_routeConfig: false,
+          v3_singleFetch: false,
+          v3_throwAbortReason: false,
+        },
+        ignoredRouteFiles: ["**/.*"],
+        serverModuleFormat: "esm",
+        routes: async (defineRoutes) => {
+          return flatRoutes("routes", defineRoutes, {
+            // eslint-disable-next-line no-undef
+            appDir: path.resolve(__dirname, "app"),
+          });
+        },
+      }),
     tsconfigPaths(),
-  ],
-  resolve: {},
+  ].filter(Boolean),
+  resolve: {
+    alias: {
+      "~": path.resolve(__dirname, "app"),
+    },
+  },
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: ["./tests/setup-test-env.ts"],
+    include: ["app/**/*.test.{ts,tsx}"],
+    exclude: ["tests/**"],
+    coverage: {
+      provider: "v8",
+      reporter: ["text", "lcov", "html"],
+      reportsDirectory: "coverage",
+      include: ["app/**/*.{ts,tsx}"],
+      exclude: [
+        "app/**/*.d.ts",
+        "app/entry.client.tsx",
+        "app/entry.server.tsx",
+      ],
+    },
+  },
 });
